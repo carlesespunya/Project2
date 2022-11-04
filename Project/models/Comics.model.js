@@ -3,11 +3,18 @@ const { Schema, model } = require("mongoose");
 const comicSchema = new Schema(
   {
     title: String,
-    name: String,
-    timestamps: true,
+    img: String,
+    author: String,
+    comicSeries: String,
+    year: Number,
+    condition: String,
+    synopsis: String,
+    price: Number,
+    reviewIds: [{ type: Schema.Types.ObjectId, ref: 'Review'}],
+    quantity: Number
   }
 );
 
-const User = model("User", comicSchema);
+const Comic = model("Comic", comicSchema);
 
-module.exports = User;
+module.exports = Comic;
