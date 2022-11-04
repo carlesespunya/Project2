@@ -3,6 +3,7 @@ const { Schema, model } = require("mongoose");
 const comicSchema = new Schema(
   {
     title: String,
+    name: String,
     timestamps: true,
   }
 );
