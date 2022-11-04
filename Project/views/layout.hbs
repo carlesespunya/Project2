@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <nav>
+      {{#if user}}
+      <a href="/auth/signup">hello </a>
+      <a href="/auth/login">nice</a>
+      {{/if}}
+
+    {{#unless user}}
+      <a href="/auth/signup">Signup</a>
+      <a href="/auth/login">Login</a>
+    {{/unless}}
+
+    </nav>
 
     {{{body}}}
 
