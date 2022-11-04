@@ -51,15 +51,22 @@ module.exports = (app) => {
     favicon(path.join(__dirname, "..", "public", "images", "favicon.ico"))
   );
 
+
   // ℹ️ Middleware that adds a "req.session" information and later to check that you are who you say you are 😅
   app.use(
     session({
-      secret: process.env.SESSION_SECRET || "super hyper secret key",
+      secret: process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
+      cookie: {
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        secure: process.env.NODE_ENV === 'production',
+        httpOnly: true,
+        maxAge: 60000
+      },
       store: MongoStore.create({
-        mongoUrl: MONGO_URI,
-      }),
-    })
+        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/project2'
+      })
+    })  
   );
 };
