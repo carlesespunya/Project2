@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <nav>
+      {{#if user}}
+      <a href="/auth/signup">hello </a>
+      <a href="/auth/login">nice</a>
+      {{/if}}
+
+
+    </nav>
 
     {{{body}}}
 
