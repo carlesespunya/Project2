@@ -19,8 +19,14 @@ router.get("/catalogue", async (req, res, next) => {
   }
 })
 // --------------------- Product details Routes ------------------------
-router.get("/product-details", (req, res, next) => {
-  res.render("product-details")
+router.get("/catalogue/:comicId", async (req, res, next) => {
+  try{
+    const comic = await Comic.findById(req.params.comicId)
+    res.render("product-details", comic)
+  } catch (err){
+    console.log("Error getting product details:" + err)
+  }
+  
 })
 
 
