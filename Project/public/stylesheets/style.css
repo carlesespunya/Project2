@@ -21,6 +21,10 @@ header {
   justify-content: space-between;
   margin: 10px
 }
+.logo {
+  display: flex;
+  flex-flow: row nowrap;
+}
 #logo-img {
   width: 50px;
 }
