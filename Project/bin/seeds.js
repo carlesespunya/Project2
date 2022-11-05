@@ -10,7 +10,7 @@ const MONGO_URI = "mongodb://localhost:27017/vintageComicShop"
 const comic = [
   {
     title: "The Batman Meets Doctor Death",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/5/w400/5137.jpg?-3164861915678165786",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/5/w400/5137.jpg?-1094480482937063769",
     author: "Book Kane",
     comicSeries: "Detective Comics",
     year: 1939,
@@ -23,7 +23,7 @@ const comic = [
   
   {
     title: "Les Cigares du Pharaon",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1493/w400/1493274.jpg?1117383809191476521",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/1493/w400/1493274.jpg?-3551622100357389581",
     author: "Hergé",
     comicSeries: "Les Aventures de Tintin",
     year: 1987,
@@ -36,7 +36,7 @@ const comic = [
     
   {
     title: "Action Comics No. 40",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/0/w400/565.jpg?-6831418524261450474",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/1/w400/1534.jpg?-427877442725006806",
     author: "Fred Ray",
     comicSeries: "Action Comics",
     year: "1938" ,
@@ -47,8 +47,8 @@ const comic = [
     quantity: 2
   },
   {
-    title: "Mafalda",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1312/w400/1312954.jpg?7950182444208753492",
+    title: "Mafalda #3",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/1312/w400/1312956.jpg?8675019372389304994",
     author: "Quino",
     comicSeries: "Mafalda",
     year: 1966,
@@ -59,11 +59,11 @@ const comic = [
     quantity: 2
   },
   {
-    title: "Misantropolis",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1012/w400/1012879.jpg?3921397601305097350",
+    title: "Mummitrollet #7",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/966/w400/966452.jpg?-4303021611371213948",
     author: "Tove Jansson",
     comicSeries: "Mummintroll",
-    year: 1995,
+    year: 1998,
     condition: "Very Good",
     synopsis: "The main protagonist, the little boy of the family, is interested in and excited about everything he sees and finds, always trying to be good, but sometimes getting into trouble while doing so; he is very brave and always finds a way to make his friends happy.",
     price: 14.99,
@@ -72,7 +72,7 @@ const comic = [
   },
   {
     title: "Action Comics No. 27",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/0/w400/552.jpg?4303249213407754409",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/0/w400/552.jpg?22604016172757585",
     author: "Paul Cassidy",
     comicSeries: "Action Comics",
     year: 1940,
@@ -84,7 +84,7 @@ const comic = [
   },
   {
     title: "Action Comics No. 150",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1138/w400/1138923.jpg?7824686344579582815",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/0/w400/675.jpg?-3446610073624033811",
     author: "Wayne Boring",
     comicSeries: "Action Comics",
     year: 1950,
@@ -96,7 +96,7 @@ const comic = [
   },
   {
     title: "The Rose of Versailles Vol.1",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1379/w400/1379263.jpg?-6745954624512040830",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/1379/w400/1379263.jpg?715146040120566337",
     author: "Riyoko Ikea",
     comicSeries: "The Rose of Versailles",
     year: 1981,
@@ -108,7 +108,7 @@ const comic = [
   },
   {
     title: "Nausicaä of the Valley of Wind #1",
-    img: "Nausicaä of the Valley of Wind #1",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/61/w400/61616.jpg?-3826487868969497532",
     author: "Hayao Miyazaki",
     comicSeries: "Nausicaä of the Valley of Wind",
     year: 1988,
@@ -119,13 +119,13 @@ const comic = [
     quantity: 1
   },
   {
-    title: "Action Comics No. 3",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/2/w400/2465.jpg?-4414093043624628871",
-    author: "Bill Finger",
+    title: "Batman #118",
+    img: "https://files1.comics.org//img/gcd/covers_by_id/2/w400/2580.jpg?-6874816770774378318",
+    author: "Sheldon Moldoff",
     comicSeries: "Batman",
     year: 1940,
     condition: "Used",
-    synopsis: "The Caped Crusaders must stop the likes of the Puppet Master, who has set his sights on stealing the Voss Rifle, the Army's newly developed secret gun. But to do it, Batman must overcome the effects of having come under the hypnotic influence of his foe.",
+    synopsis: "The Caped Crusaders have the task of saving four escaped felons from the radiation they have become contaminated with before they perish or infect others.",
     price: 89.99,
     reviewIds: [],
     quantity: 9 
@@ -179,11 +179,11 @@ const createSeeds = async function () {
     const connect = await mongoose.connect(MONGO_URI)
     console.log(`Connected to database: ${connect.connections[0].name}`)
 //---------------------comics seeds --------------
-    //const deleteAll = await Comic.deleteMany()
-    //console.log("Comic Db clean")
+    const deleteAll = await Comic.deleteMany()
+    console.log("Comic Db clean")
 
-    //const createAll = await Comic.create(comic)
-    //console.log("comics created")
+    const createAll = await Comic.create(comic)
+    console.log("comics created")
 //---------------------comics seeds --------------
 //---------------------users seeds --------------
     //const deleteAllUser = await User.deleteMany()
