@@ -1,1 +1,10 @@
-<h1>catalogue</h1>
+<h2>Available comics</h2>
+{{#each allComics}}
+
+<div>
+    <h1>title: {{title}}</h1>
+    <p>year: {{year}}</p>
+    <p>price: {{price}}</p>
+</div>
+
+{{/each}}
