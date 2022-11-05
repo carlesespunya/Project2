@@ -21,7 +21,9 @@ header {
   justify-content: space-between;
   margin: 10px
 }
-
+#logo-img {
+  width: 50px;
+}
 #hero-img {
   width: 390px;
 }
