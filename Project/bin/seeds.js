@@ -179,11 +179,11 @@ const createSeeds = async function () {
     const connect = await mongoose.connect(MONGO_URI)
     console.log(`Connected to database: ${connect.connections[0].name}`)
 //---------------------comics seeds --------------
-    //const deleteAll = await Comic.deleteMany()
-    //console.log("Comic Db clean")
+    const deleteAll = await Comic.deleteMany()
+    console.log("Comic Db clean")
 
-    //const createAll = await Comic.create(comic)
-    //console.log("comics created")
+    const createAll = await Comic.create(comic)
+    console.log("comics created")
 //---------------------comics seeds --------------
 //---------------------users seeds --------------
     //const deleteAllUser = await User.deleteMany()
@@ -193,11 +193,11 @@ const createSeeds = async function () {
     //console.log("users created")
 //---------------------users seeds --------------
 //---------------------review seeds --------------
-    const deleteAllreview = await Review.deleteMany()
-    console.log("reviews Db clean")
+  const deleteAllreview = await Review.deleteMany()
+  console.log("reviews Db clean")
 
-    const createAllreview = await Review.create(reviews)
-    console.log("reviews created")
+    //const createAllreview = await Review.create(reviews)
+    //console.log("reviews created")
 //---------------------review seeds --------------
 
     const dbClose = await mongoose.connection.close()
