@@ -2,6 +2,8 @@ const mongoose = require("mongoose")
 
 // Require the models,  Example: (-- const Book = require("../models/Book.model") --)
 const Comic = require("../models/Comics.model")
+const User = require("../models/User.model")
+const Review = require("../models/Reviews.model")
 
 const MONGO_URI = "mongodb://localhost:27017/vintageComicShop"
 
@@ -130,17 +132,73 @@ const comic = [
   }
 ]
 
+const users = [
+  {
+    username: "yaron1",
+    email: "yaron1@gmail.com",
+    password: "1234",
+  },
+  {
+    username: "carol",
+    email: "carol@gmail.com",
+    password: "1234",
+  },
+  {
+    username: "carlas",
+    email: "carlas@gmail.com",
+    password: "1234",
+  }
+]
+const reviews = [
+  {
+    title: "Very good service",
+    userId: "6366346c4ba4c2af26cefabb",
+    comicId: "6366346c4ba4c2af26cefaab",
+    content: "Very good service from the store, fast delivery and the comic is in a very good condition as well",
+    rating: 5
+  },
+  {
+    title: "Nice quality",
+    userId: "6366346c4ba4c2af26cefabc",
+    comicId: "6366346c4ba4c2af26cefaad",
+    content: "The comic arrived in a good quality, service was ok",
+    rating: 4
+  },
+  {
+    title: "Service is good But the comic is too vintage",
+    userId: "6366346c4ba4c2af26cefabd",
+    comicId: "6366346c4ba4c2af26cefaae",
+    content: "The comic arrived in a bad condition ive expected for better condition",
+    rating: 3
+  }
+]
+
 
 const createSeeds = async function () {
   try {
     const connect = await mongoose.connect(MONGO_URI)
     console.log(`Connected to database: ${connect.connections[0].name}`)
+//---------------------comics seeds --------------
+    //const deleteAll = await Comic.deleteMany()
+    //console.log("Comic Db clean")
 
-    const deleteAll = await Comic.deleteMany()
-    console.log("Db clean")
+    //const createAll = await Comic.create(comic)
+    //console.log("comics created")
+//---------------------comics seeds --------------
+//---------------------users seeds --------------
+    //const deleteAllUser = await User.deleteMany()
+    //console.log("User Db clean")
 
-    const createAll = await Comic.create(comic)
-    console.log("comics created")
+    //const createAllUser = await User.create(users)
+    //console.log("users created")
+//---------------------users seeds --------------
+//---------------------review seeds --------------
+    const deleteAllreview = await Review.deleteMany()
+    console.log("reviews Db clean")
+
+    const createAllreview = await Review.create(reviews)
+    console.log("reviews created")
+//---------------------review seeds --------------
 
     const dbClose = await mongoose.connection.close()
     
