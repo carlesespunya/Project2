@@ -21,12 +21,8 @@ header {
   justify-content: space-between;
   margin: 10px
 }
-/* .hero-section {
-  position: relative;
-  text-align: center;
-} */
 
-/* #hero-img {
+#hero-img {
   width: 390px;
 }
 .check-catalogue{
@@ -62,4 +58,25 @@ footer {
   height: 200px;
   text-align: center;
 }
- */
+
+/* CATALOGUE */
+.product-display {
+  display: flex;
+  flex-flow: row wrap;
+}
+.product-card {
+  display: flex;
+  flex-flow: column;
+}
+.product-card > button {
+  background-color: #1d2b79;
+  color: white;
+  border: none;
+  outline: none;
+}
+/* PRODUCT DETAILS SECTION */
+.product-details-card > button {
+  background-color: #1d2b79;
+  color: white;
+}
+
