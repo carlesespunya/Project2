@@ -132,23 +132,23 @@ const comic = [
   }
 ]
 
-const users = [
-  {
-    username: "yaron1",
-    email: "yaron1@gmail.com",
-    password: "1234",
-  },
-  {
-    username: "carol",
-    email: "carol@gmail.com",
-    password: "1234",
-  },
-  {
-    username: "carlas",
-    email: "carlas@gmail.com",
-    password: "1234",
-  }
-]
+// const users = [
+//   {
+//     username: "yaron1",
+//     email: "yaron1@gmail.com",
+//     password: "1234567",
+//   },
+//   {
+//     username: "carol",
+//     email: "carol@gmail.com",
+//     password: "1234567",
+//   },
+//   {
+//     username: "carlas",
+//     email: "carlas@gmail.com",
+//     password: "1234567",
+//   }
+// ]
 const reviews = [
   {
     title: "Very good service",
@@ -186,11 +186,11 @@ const createSeeds = async function () {
     console.log("comics created")
 //---------------------comics seeds --------------
 //---------------------users seeds --------------
-    //const deleteAllUser = await User.deleteMany()
-    //console.log("User Db clean")
+    const deleteAllUser = await User.deleteMany()
+    console.log("User Db clean")
 
-    //const createAllUser = await User.create(users)
-    //console.log("users created")
+    const createAllUser = await User.create(users)
+    console.log("users created")
 //---------------------users seeds --------------
 //---------------------review seeds --------------
   //const deleteAllreview = await Review.deleteMany()
