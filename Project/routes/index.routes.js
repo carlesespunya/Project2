@@ -9,10 +9,10 @@ router.get("/", (req, res, next) => {
 });
 // ------------------------ catalogue Routes ------------------------
 router.get("/catalogue", async (req, res, next) => {
-  console.log("We are inside the catalogue!")
+  //console.log("We are inside the catalogue!")
   try{
   const allComics = await Comic.find()
-  console.log("This are all the comics : ", {allComics})
+  //console.log("This are all the comics : ", {allComics})
   res.render("catalogue", {allComics})
   } catch (err) {
     console.log("Error getting catalogue:" + err)

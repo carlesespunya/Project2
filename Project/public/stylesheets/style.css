@@ -65,10 +65,13 @@ footer {
 .product-display {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
 }
 .product-card {
   display: flex;
   flex-flow: column;
+  width: 220px;
+  padding: 10px;
 }
 .product-card > button {
   background-color: #1d2b79;
