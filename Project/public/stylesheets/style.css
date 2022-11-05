@@ -1,13 +1,18 @@
+* {
+  margin: auto 0;
+  padding: 0;
+}
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #1d2b79;
+  text-decoration: none;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2em;
 }
 header {
   display: flex;
@@ -16,3 +21,45 @@ header {
   justify-content: space-between;
   margin: 10px
 }
+/* .hero-section {
+  position: relative;
+  text-align: center;
+} */
+
+/* #hero-img {
+  width: 390px;
+}
+.check-catalogue{
+  height: 200px;
+}
+.section-img {
+  width: 150px;
+}
+.second-section {
+  background-color: #1d2b79;
+  color: white;
+  height: 200px;
+}
+.second-section > video {
+  width: 200px;
+}
+.testimony {
+  height: 200px;
+  font-size: 1.5em;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.testimony > p {
+  padding: 10px;
+}
+#testimony-img {
+  width: 70px;
+  padding: 10px;
+}
+footer {
+  background-color: #1d2b79;
+  color: white;
+  height: 200px;
+  text-align: center;
+}
+ */
