@@ -1,12 +1,9 @@
-
-<h1>Catalogue</h1>
-
 <div class="product-display">
     {{#each allComics}}
     <div class="product-card">
     <img src="{{img}}" alt="">
     <h2>{{title}}</h2>
-    <p>{{price}}</p>
+    <p>${{price}}</p>
     <a href="catalogue/{{_id}}">See details</a>
     </div>
     {{/each}}

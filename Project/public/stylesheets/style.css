@@ -20,7 +20,7 @@ body {
 }
 
 a {
-  color: #1d2b79;
+  color:#3F7B90;
   text-decoration: none;
 }
 
@@ -132,6 +132,7 @@ header {
 
 /* CATALOGUE */
 .product-display {
+  color: #D07D56;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -148,10 +149,33 @@ header {
   border: none;
   outline: none;
 }
+
 /* PRODUCT DETAILS SECTION */
+.product-details {
+  margin: 30px;
+}
+.product-details-card {
+  background-color: white;
+  color: #D07D56;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 800;
+}
+.product-details-card > h4, .product-details-card > p {
+color: #3F7B90;
+}
+
 .product-details-card > button {
-  background-color: #1d2b79;
-  color: white;
+  background-color:#D07D56;
+  border: none;
+  padding: 10px;
+  font-weight: 800;
+  border-radius: 10px;
+  color:white;
+}
+/* REVIEWS */
+.reviews > h3 {
+  color: #3F7B90;
 }
 
 /*LOGIN PAGE */
