@@ -10,7 +10,7 @@ const MONGO_URI = "mongodb://localhost:27017/vintageComicShop"
 const comic = [
   {
     title: "The Batman Meets Doctor Death",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/5/w400/5137.jpg?-1094480482937063769",
+    img: "https://i.imgur.com/IDVRisS.jpg",
     author: "Book Kane",
     comicSeries: "Detective Comics",
     year: 1939,
@@ -23,7 +23,7 @@ const comic = [
   
   {
     title: "Les Cigares du Pharaon",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1493/w400/1493274.jpg?-3551622100357389581",
+    img: "https://i.imgur.com/46d3BBh.jpg",
     author: "Hergé",
     comicSeries: "Les Aventures de Tintin",
     year: 1987,
@@ -48,7 +48,7 @@ const comic = [
   },
   {
     title: "Mafalda #3",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1312/w400/1312956.jpg?8675019372389304994",
+    img: "https://i.imgur.com/A8VLIhO.jpg",
     author: "Quino",
     comicSeries: "Mafalda",
     year: 1966,
@@ -60,7 +60,7 @@ const comic = [
   },
   {
     title: "Mummitrollet #7",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/966/w400/966452.jpg?-4303021611371213948",
+    img: "https://i.imgur.com/1ZJbbu6.jpg",
     author: "Tove Jansson",
     comicSeries: "Mummintroll",
     year: 1998,
@@ -96,7 +96,7 @@ const comic = [
   },
   {
     title: "The Rose of Versailles Vol.1",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1379/w400/1379263.jpg?715146040120566337",
+    img: "https://i.imgur.com/PhIUrUk.jpg",
     author: "Riyoko Ikea",
     comicSeries: "The Rose of Versailles",
     year: 1981,
@@ -108,7 +108,7 @@ const comic = [
   },
   {
     title: "Nausicaä of the Valley of Wind #1",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/61/w400/61616.jpg?-3826487868969497532",
+    img: "https://i.imgur.com/jKe7ZGE.jpg",
     author: "Hayao Miyazaki",
     comicSeries: "Nausicaä of the Valley of Wind",
     year: 1988,

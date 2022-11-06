@@ -161,6 +161,10 @@ header {
   padding: 10px;
   font-weight: 800;
 }
+.product-details-card > img {
+  width: 300px;
+  display: flex;
+}
 .product-details-card > h4, .product-details-card > p {
 color: #3F7B90;
 }
