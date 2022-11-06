@@ -129,12 +129,6 @@ header {
   width: 70px;
   padding: 10px;
 }
-footer {
-  background-color: #1d2b79;
-  color: white;
-  height: 200px;
-  text-align: center;
-}
 
 /* CATALOGUE */
 .product-display {
@@ -210,6 +204,39 @@ footer {
   color: #D07D56;
   font-weight: 800;
   
+}
+footer {
+  background-color:#D07D56;
+  color: white;
+  height: 350px;
+  text-align: center;
+}
+footer > h2 {
+  font-size: 2em;
+}
+
+.social-media {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+.social-media > img {
+  width: 100px;
+}
+i {
+  color: white;
+  font-size: 2em;
+  padding: 5px;
+}
+.shop-details {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+height: 70px;
+}
+.address {
+  padding: 15px;
 }
 
 
