@@ -86,6 +86,7 @@ padding: 5px;
   background-color: white;
   font-size: 1.3em;
   padding: 10px;
+  border-radius: 10px;
 }
 
 header {
@@ -103,31 +104,85 @@ header {
   width: 50px;
 }
 
+/* first section */
+.video-box {
+  position: relative;
+}
+
 .check-catalogue{
-  height: 200px;
+  height: 260px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.video-box {
+  margin-top: 20px;
+  display: flex;
+  align-items:center;
+}
+#test {
+  z-index: 1;
+}
+#tv {
+  width: 300px;
+  margin-left: 50px;
+  z-index: 1;
+}
+.video {
+  width: 215px;
+  margin-left: -280px;
+  margin-bottom: 30px;
+  z-index: 20;
 }
 .section-img {
-  width: 150px;
+  width: 60%;
 }
 .second-section {
-  color: black;
-  height: 400px;
+  height: 250px;
 }
 .second-section > video {
   width: 100%;
 }
+/* THIRD SECTION */
+.third-section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 30px;
+}
+#reading {
+  width: 200px;
+}
+.third-section > h2 {
+  color: #D07D56;
+  font-size: 2em;
+  text-align: center;
+}
+.third-section > p {
+  color: #3F7B90;
+}
+.third-section > a {
+  margin-top: 20px;
+}
 .testimony {
-  height: 200px;
+  height: 300px;
   font-size: 1.5em;
   display: flex;
   flex-flow: row nowrap;
+  color: #3F7B90;
 }
 .testimony > p {
   padding: 10px;
 }
-#testimony-img {
-  width: 70px;
-  padding: 10px;
+.testimony-profile {
+  width: 125px;
+  margin-right: 10px;
+}
+
+.img-background {
+  background-image: url(/images/omer-haktan-bulut-n05Z1v38vZM-unsplash.jpg);
+  border-radius: 50%;
+  background-color: #D07D56;
+  width: 100px;
 }
 
 /* CATALOGUE */
@@ -266,5 +321,4 @@ height: 70px;
 .address {
   padding: 15px;
 }
-
 
