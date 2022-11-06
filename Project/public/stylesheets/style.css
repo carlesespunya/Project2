@@ -162,6 +162,7 @@ footer {
 
 /*LOGIN PAGE */
 .login-card{
+  margin-top: 30px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
