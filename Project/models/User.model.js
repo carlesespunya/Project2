@@ -20,6 +20,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    shoppingcart: {
+      type: Array,
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
