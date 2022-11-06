@@ -1,10 +1,31 @@
 <h1>This is the shopping cart</h1>
-<div class="cart-container">
+{{# if products}}
+    <div class="list-group">
+        {{# each products }}
+            <div class="list-group-item border">
+                <strong>{{ this.item}}</strong>
+                    {{!-- <span class="badge price-cart">${{ this.price }}</span> --}}
+                        <div class="btn-group">
+                        </div>
+                        <span class="total">{{ this.qty }}</span>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+{{else}}
+    <div class="empty">
+        <h2>Oops, your cart is empty</h2>
+    </div>
+{{/if}}
+
+
+{{!-- <div class="cart-container">
     <div class="cart-card">
         <h2>Shopping Cart Card</h2>
         <button type="submit">Delete Product</button>
         <h3>Product Name</h3>
         <p>Price</p>
     </div>
-    <button type="submit">Check Out</button>
+    <button type="submit">Check Out</button> --}}
 </div>
