@@ -46,11 +46,9 @@ const restaurantSchema = new Schema(
   
     delivery: {
       type: Boolean,
-    }
+    },
 
   },
-
-
 
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
@@ -58,6 +56,6 @@ const restaurantSchema = new Schema(
   }
 );
 
-const Restaurant = model("Restaurant", userSchema);
+const Restaurant = model("Restaurant", restaurantSchema);
 
-module.exports = User;
+module.exports = Restaurant;
