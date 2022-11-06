@@ -28,6 +28,15 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
   }
   
 })
+// --------------------- Shopping Cart Routes ------------------------
+router.get("/cart", async (req, res, next) => {
+  try {
+    res.render("cart")
+  }
+  catch (err) {
+    console.log("Error getting into the cart")
+  }
+})
 
 
 module.exports = router;
