@@ -1,0 +1,56 @@
+<div id="form-spot">
+  <h2>Create Spot</h2>
+  <form action="/auth/addSpot" method="POST">
+
+    <label> Full Name
+      <input type="text" name="fullname" placeholder="Spot Name" />
+    </label>
+
+    <label> Coordenates
+      <input type="text" name="coordenates" placeholder="Coordenates" />
+    </label>
+
+    <label> Images
+      <input type="file" accept="image/png, image/jpeg" name="uploadImage" placeholder="Upload Images" />
+    </label>
+
+    <label class="description-spot"> Description
+      <textarea name="description" cols="30" rows="10"></textarea>
+    </label>
+
+    <label class="amenities-spot"> Amenities
+      <ul>
+        <li>
+          <input type="checkbox">BBQ
+        </li>
+        <li>
+          <input type="checkbox">Toilet
+        </li>
+        <li>
+          <input type="checkbox">Electricity
+        </li>
+        <li>
+          <input type="checkbox">Drinking Water
+        </li>
+        <li>
+          <input type="checkbox">Trash Can
+        </li>
+        <li>
+          <input type="checkbox">Shower
+        </li>
+      </ul>
+    </label>
+
+    <label> Webpage
+      <input type="url" name="webpage" id="webpageInput">
+    </label>
+
+
+    <button type="submit">Sign Up</button>
+
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
