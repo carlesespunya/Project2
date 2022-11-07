@@ -6,9 +6,14 @@ const Restaurant = require("../models/restaurant");
 
 
 
-router.get('/restaurants', (req, res) => {
-    res.render('restaurants/restaurant-list')
-  })
+router.get('/restaurants' , async (req, res) => {
+    try {
+        const dbRestaurants = await Restaurant.find()
+        res.render('restaurants/restaurant-list', { dbRestaurants })
+    } catch (error) {
+        console.log(error)
+    }
+})
   
 router.get('/create-restaurant', (req, res) => {
     res.render('restaurants/restaurant-form', {options: ["Arabic", "Argentinian", "Bar", "Brazilian", "Burgers", "Chinese", "Korean", 
@@ -31,15 +36,6 @@ router.post('/create-restaurant', async (req, res) => {
     }
 })
 
-router.get('/:restaurantId', async (req, res) => {
-    const restaurantId = req.params.restaurantId
-    try {
-        const restaurant = await Restaurant.findById(restaurantId)
-        console.log(restaurant)
-        res.render('/restaurantCard', restaurant)
-    } catch (error) {
-        console.log(error)
-    }
-})
+
 
 module.exports = router
