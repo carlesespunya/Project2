@@ -46,7 +46,7 @@ router.post("/catalogue/:comicId/add", async (req, res, next) => {
     console.log(newItem)
     const findCarrito = await Cart.findOne({ userId: currUser})
     console.log(findCarrito)
-    const addItemtoCarro = await Item.updateOne({newItem, cartId: findCarrito})
+    const addItemtoCarro = await Item.updateMany({newItem, cartId: findCarrito})
     console.log(addItemtoCarro)
     //res.render("product-details", comicId)
   }
