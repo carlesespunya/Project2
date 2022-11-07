@@ -1,0 +1,61 @@
+<div id="form">
+  <h2>Add your restaurant</h2>
+  <form action="/create-restaurant" method="POST">
+
+    <label> Name
+      <input type="text" name="name" placeholder="Restaurant Name" />
+    </label>
+
+    <label> Style
+      <select name="style">
+        {{#each options}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+        
+      </select>
+    </label>
+
+    <label> Address
+      <input type="address" name="address" placeholder="Address" />
+    </label>
+
+    <label> Price
+        <select name="price">
+            <option value="€">€</option>
+            <option value="€€">€€</option>
+            <option value="€€€">€€€</option>
+        </select>
+    </label>
+
+    <label> Phone
+        <input type="number" name="phonenumber" placeholder="Phone">
+    </label>
+
+    <label> Image
+        <input type="file" name="picture" placeholder="Restaurant image">
+    </label>
+
+    <label> Instagram
+        <input type="text" name="instagram" placeholder="Instagram">
+    </label>
+
+    <label> Wifi
+        <input type="checkbox" name="wifi">
+    </label>
+
+    <label> Coworking
+        <input type="checkbox" name="coworking">
+    </label>
+
+    <label> Delivery
+        <input type="checkbox" name="delivery">
+    </label>
+
+    <button type="submit">Create your restaurant</button>
+
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>

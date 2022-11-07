@@ -12,9 +12,9 @@ const restaurantSchema = new Schema(
     style: {
       type: String,
       required: true,
-      enum: ["Arabic", "Argentinian", "Bar", "Brazilian", "Burgers", "Chinese", "Korean", "Creperie", 
-      "Brunch", "Fusion", "Greek", "Galician", "Halal", "Kosher", "Ice Cream", "Indian", "Mediterranean", 
-      "Lebanese", "Japanese", "Indian",  "Kebab", "Malasian", "Mexican", "Italian", "Poke", "Sirian", "Sushi", "Vegan", "Vegetarian", "Vietnamese", "Coffee Shop"]
+      enum: ["Arabic", "Argentinian", "Bar", "Brazilian", "Burgers", "Chinese", "Korean", 
+      "Brunch", "Indian", "Japanese", "Indian",  "Kebab", "Mexican", "Italian", "Poke", 
+      "Sushi", "Vegan", "Vegetarian", "Vietnamese", "Coffee Shop"]
     },
 
     address: {
@@ -23,7 +23,7 @@ const restaurantSchema = new Schema(
     },
    
     price: {
-      type: Number,
+      type: String,
       required: true 
     },
     phonenumber: {
@@ -62,4 +62,4 @@ const restaurantSchema = new Schema(
 
 const Restaurant = model("Restaurant", restaurantSchema);
 
-module.exports = User;
+module.exports = Restaurant;

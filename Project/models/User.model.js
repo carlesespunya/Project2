@@ -25,6 +25,9 @@ const userSchema = new Schema(
       type: [{type: Schema.Types.ObjectId, ref:"Restaurant"}]
     },
 
+    admin : {
+      type: Boolean
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
