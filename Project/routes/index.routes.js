@@ -16,7 +16,6 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     const findCarrito = await Cart.findOne({ userId: currUser})
     //console.log(findCarrito)
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
-    console.log(carritoItems[0].comicId.title)
     res.render("cart", {carritoItems}) 
   }
   catch(err){
@@ -86,6 +85,18 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
   }
   catch(err){console.log(err)}
 })
+
+//delete item from the cart
+  router.post("/cart/:itemId/delete", isLoggedIn, async (req, res, next) => {
+    const {itemId} = req.params
+    try {
+      const deleteItem = await Item.deleteOne({itemId})
+      res.redirect("/cart")
+    }
+    catch(err){
+      console.log(err)
+    } 
+  })
 
 
 

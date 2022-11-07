@@ -1,14 +1,18 @@
 <h1>This is the shopping cart</h1>
 <div class="cartContainer">
-{{#each carritoItems }}
-{{!-- {{this._id}} --}}
-<div class="item-card">
-    <h3>{{this.comicId.title}}</h3>
-    <img src="{{this.comicId.img}}" alt="">
-</div>
-
-
+{{#if carritoItems}}
+    {{#each carritoItems }}
+        <div class="item-card">
+            <h3>{{this.comicId.title}}</h3>
+            <img src="{{this.comicId.img}}" alt="">
+            <form action="/cart/{{_id}}/delete" method="post">
+                <button type="submit">Delete Item</button>
+            </form>
+        </div>
 {{/each}}
+{{else}}
+    <h2>Ooops, seems like your cart is empty 🥺</h2>
+{{/if}}
 </div>
 
 
