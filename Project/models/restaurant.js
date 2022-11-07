@@ -60,6 +60,6 @@ const restaurantSchema = new Schema(
   }
 );
 
-const Restaurant = model("Restaurant", userSchema);
+const Restaurant = model("Restaurant", restaurantSchema);
 
 module.exports = User;
