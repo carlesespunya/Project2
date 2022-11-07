@@ -5,6 +5,10 @@ const Comic = require("../models/Comics.model");
 const Item = require('../models/Items.model');
 const Cart = require('../models/ShoppingCart.model');
 
+const isLoggedOut = require("../middleware/isLoggedOut");
+const isLoggedIn = require("../middleware/isLoggedIn");
+
+
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -34,7 +38,7 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
 
 //TESTING CART ROUTES
 
-router.post("/catalogue/:comicId/add", async (req, res, next) => {
+router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
   //console.log("we are inside!")
   const currUser = req.session.currentUser
   console.log(currUser)
@@ -46,7 +50,7 @@ router.post("/catalogue/:comicId/add", async (req, res, next) => {
     console.log(newItem)
     const findCarrito = await Cart.findOne({ userId: currUser})
     console.log(findCarrito)
-    const addItemtoCarro = await Item.updateOne({newItem, cartId: findCarrito})
+    const addItemtoCarro = await Item.updateMany({newItem, cartId: findCarrito})
     console.log(addItemtoCarro)
     //res.render("product-details", comicId)
   }
