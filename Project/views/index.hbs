@@ -1,3 +1,6 @@
+
+{{#if user}}
+
 <h2>Activities</h2>
 {{#each activityDb}}
 <a href="/description/{{this._id}}"><p>Name: {{this.name}}</p></a>
@@ -5,4 +8,17 @@
 <p>---------------------------------</p>
 <href="/">
 {{/each}}
+
+{{/if}}
+
+
+
+{{#unless user}}
+<h1>Welcome TravelSouls</h1>
+
+{{/unless}}
+
+
+
+
 
