@@ -10,6 +10,7 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
+const Cart = require("../models/ShoppingCart.model")
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -60,10 +61,20 @@ router.post("/signup", isLoggedOut, (req, res) => {
     .genSalt(saltRounds)
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
+      console.log("password encrypted")
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword });
+      return User.create({ username, email, password: hashedPassword })
     })
     .then((user) => {
+      console.log("user created")
+      return Cart.create({userId: user._id})
+    })
+    .then((cart) => {
+      console.log("cart created")
+      return User.findByIdAndUpdate(cart.userId, {cart: cart._id})
+    })
+    .then((user) => {
+      console.log("user updated")
       res.redirect("/auth/login");
     })
     .catch((error) => {

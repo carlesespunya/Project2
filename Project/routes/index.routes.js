@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 //const { default: mongoose } = require('mongoose');
-const Comic = require("../models/Comics.model")
+const Comic = require("../models/Comics.model");
+const Item = require('../models/Items.model');
 const Cart = require('../models/ShoppingCart.model');
 
 /* GET home page */
@@ -28,6 +29,22 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
     console.log("Error getting product details:" + err)
   }
   
+})
+
+//TESTING CART ROUTES
+
+router.post("/catalogue/:comicId/add", async (req, res, next) => {
+  console.log("we are inside!")
+  const {comicId} = req.params
+  console.log(comicId)
+  try{
+    // const comics = await Comic.findById(comicId)
+    // console.log(comics);
+    const newItem = await Item.create({comicId})
+    console.log(newItem)
+    //res.render("product-details", comicId)
+  }
+  catch(err){console.log(err)}
 })
 
 
