@@ -4,27 +4,49 @@ const router = express.Router();
 const Activity = require("../models/Activity.model")
 
 /* GET home page */
-router.get("/homepage", (req, res) => {
-  res.render("activity/homepage");
-});
 
-router.get("/homepage/create", (req, res) => {
+router.get("/create", (req, res) => {
     res.render("activity/new-activity")
 })
 
-router.post("/homepage/create", async (req, res) => {
-  const {name, description} = req.body
+
+
+router.post("/create", async (req, res) => {
+  const {name, description, _id} = req.body
   
   try{
-      const newActivity = await Activity.create({name, description})
-      console.log(newActivity)
-      res.redirect("/homepage", newActivity)
+      const newActivity = await Activity.create({name, description, _id})
+     
+      res.redirect("/")
   }catch (err){
       console.log(err)
-      res.render("homepage/new-activity")
+      res.render("activity/new-activity")
   }
 })
 
+router.get("/", async (req, res) => {
+  try{
+    const activityDb = await Activity.find()
+     res.render("views/index", {activityDb});
+ }catch(err){
+     console.log(err)
+ }
+});
+
+router.get("/description/:activityId", async (req, res) => {
+  const {activityId}  = req.params
+  console.log(activityId)
+  try{
+    const actId = await Activity.findById(activityId)
+    console.log(actId)
+    res.render("activity/activity-description", actId)
+  }catch(err){
+     console.log(err)
+  }
+});
+
+
 module.exports = router
+
 
 

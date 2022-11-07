@@ -1,5 +1,8 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
-{{!-- Delete later --}}
-<a href="/homepage">See activities</a> 
+<h2>Activities</h2>
+{{#each activityDb}}
+<a href="/description/{{this._id}}"><p>Name: {{this.name}}</p></a>
+<p>Description: {{this.description}}</p>
+<p>---------------------------------</p>
+<href="/">
+{{/each}}
 
