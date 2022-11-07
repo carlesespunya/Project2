@@ -5,7 +5,9 @@
     <h4>Year: {{year}}</h4>
     <h4>Condition: {{condition}}</h4>
     <h3>${{price}}</h3>
-    <a href=""><button>ADD TO CART</button></a>
+    <form action="/catalogue/{{_id}}/add" method="post">
+    <button type="submit">ADD TO CART</button>
+    </form>
     <p>{{synopsis}}</p>
         <div class="reviews">
             <h2>Reviews</h2>
