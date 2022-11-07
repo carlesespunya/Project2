@@ -87,6 +87,18 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
   catch(err){console.log(err)}
 })
 
+//delete item from the cart
+  router.post("/cart/:itemId/delete", isLoggedIn, async (req, res, next) => {
+    const {itemId} = req.params
+    try {
+      const deleteItem = await Item.deleteOne({itemId})
+      res.redirect("/cart")
+    }
+    catch(err){
+      console.log(err)
+    } 
+  })
+
 
 
 
