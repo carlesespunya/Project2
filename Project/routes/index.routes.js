@@ -98,6 +98,23 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
     } 
   })
 
+  //checkout route
+  router.post("/cart/checkout", isLoggedIn, async (req, res, next) => {
+    const currUser = req.session.currentUser
+    //res.redirect("/cart/checkout")
+    try {
+      const findCarrito = await Cart.findOne({ userId: currUser})
+      const deleteAll = await Item.deleteMany({cartId: findCarrito})
+      res.redirect("/cart/checkout")
+      }
+    catch(err){
+       console.log(err)
+     } 
+  })
+  router.get("/cart/checkout", isLoggedIn, async (req, res, next) => {
+    res.render("checkout")
+  })
+
 
 
 
