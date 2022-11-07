@@ -1,6 +1,15 @@
 <h1>This is the shopping cart</h1>
+<div class="cartContainer">
 {{#each carritoItems }}
-{{this._id}}
+{{!-- {{this._id}} --}}
+<div class="item-card">
+    <h3>{{this.comicId.title}}</h3>
+    <img src="{{this.comicId.img}}" alt="">
+</div>
+
+
 {{/each}}
+</div>
+
 
 

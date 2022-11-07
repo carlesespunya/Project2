@@ -15,8 +15,8 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     const currUser = req.session.currentUser
     const findCarrito = await Cart.findOne({ userId: currUser})
     //console.log(findCarrito)
-    const carritoItems = await Item.find({cartId: findCarrito._id})
-    console.log(carritoItems)
+    const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
+    console.log(carritoItems[0].comicId.title)
     res.render("cart", {carritoItems}) 
   }
   catch(err){
@@ -82,7 +82,7 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
     console.log(findCarrito)
     const addItemtoCarro = await Item.updateMany({newItem, cartId: findCarrito})
     console.log(addItemtoCarro)
-    //res.redirect("cart")
+    res.redirect("/catalogue")
   }
   catch(err){console.log(err)}
 })
