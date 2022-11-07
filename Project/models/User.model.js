@@ -20,20 +20,20 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    age: {
-      type: Number, 
-      required: true
-    },
-    gender: {
-      type: String, 
-      required: true,
-      enum: ['male', 'female', 'they']
-    }, 
-    status: {
-      type: String,
-      required: true,
-      enum: ['single', 'in a relationship']
-    }
+    // age: {
+    //   type: Number, 
+    //   required: true
+    // },
+    // gender: {
+    //   type: String, 
+    //   required: true,
+    //   enum: ['male', 'female', 'they']
+    // }, 
+    // status: {
+    //   type: String,
+    //   required: true,
+    //   enum: ['single', 'in a relationship']
+    // }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

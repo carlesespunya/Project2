@@ -5,6 +5,8 @@ const Activity = require("../models/Activity.model")
 
 /* GET home page */
 
+
+
 router.get("/create", (req, res) => {
     res.render("activity/new-activity")
 })
@@ -23,15 +25,6 @@ router.post("/create", async (req, res) => {
   }
 })
 
-
-router.get("/", async (req, res) => {
-  try{
-    const activityDb = await Activity.find()
-     res.render("views/index", {activityDb});
- }catch(err){
-     console.log(err)
- }
-});
 
 router.get("/description/:activityId", async (req, res) => {
   const {activityId}  = req.params
