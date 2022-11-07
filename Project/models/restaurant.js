@@ -12,6 +12,9 @@ const restaurantSchema = new Schema(
     style: {
       type: String,
       required: true,
+      enum: ["Arabic", "Argentinian", "Bar", "Brazilian", "Burgers", "Chinese", "Korean", "Creperie", 
+      "Brunch", "Fusion", "Greek", "Galician", "Halal", "Kosher", "Ice Cream", "Indian", "Mediterranean", 
+      "Lebanese", "Japanese", "Indian",  "Kebab", "Malasian", "Mexican", "Italian", "Poke", "Sirian", "Sushi", "Vegan", "Vegetarian", "Vietnamese", "Coffee Shop"]
     },
 
     address: {
@@ -46,9 +49,10 @@ const restaurantSchema = new Schema(
   
     delivery: {
       type: Boolean,
-    },
+    }
 
   },
+
 
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
@@ -56,6 +60,6 @@ const restaurantSchema = new Schema(
   }
 );
 
-const Restaurant = model("Restaurant", restaurantSchema);
+const Restaurant = model("Restaurant", userSchema);
 
-module.exports = Restaurant;
+module.exports = User;
