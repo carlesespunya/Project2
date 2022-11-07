@@ -1,11 +1,15 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userSchema = new Schema(
   {
-    username: {
+    fullName: {
       type: String,
       required: false,
+      trim:true,
+    },
+    username: {
+      type: String,
+      required: true,
       unique: true,
       trim: true,
     },
@@ -20,9 +24,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    savedSpots: [{ type: Schema.Types.ObjectId, ref: 'Spot' }],
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+    commentLike: [{ type: Schema.Types.ObjectId, ref: 'CommentLike' }]
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
+  { 
     timestamps: true,
   }
 );
