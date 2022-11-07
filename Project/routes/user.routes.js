@@ -12,7 +12,6 @@ router.get("/user-profile", isLoggedIn, (req, res) => {
 })
 
 
-
 module.exports = router
 
 
