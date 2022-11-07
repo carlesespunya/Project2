@@ -3,11 +3,10 @@
     <div class="list-group">
         {{# each products }}
             <div class="list-group-item border">
-                <strong>{{ this.item}}</strong>
-                    {{!-- <span class="badge price-cart">${{ this.price }}</span> --}}
-                        <div class="btn-group">
-                        </div>
+                <strong>{{ this.item.title}}</strong>
+                    <span class="badge price-cart">${{ this.price }}</span>
                         <span class="total">{{ this.qty }}</span>
+                        <a href="cart/remove/{{ this.item}}">Remove All</a>
                     </div>
                 {{/each}}
             </div>

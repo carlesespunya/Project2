@@ -47,9 +47,7 @@ h1 {
   display: flex;
   flex-flow: row nowrap;
 }
-/* .icons:hover{
-  opacity: 0.5;
-} */
+
 .logout-btn {
   color: #3F7B90;
   font-family: 'Gudea Regular';
@@ -137,7 +135,7 @@ header {
   width: 60%;
 }
 .second-section {
-  height: 250px;
+  height: 215px;
 }
 .second-section > video {
   width: 100%;

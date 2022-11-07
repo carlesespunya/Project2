@@ -40,10 +40,10 @@ router.get('/catalogue/add-to-cart/:id', function (req, res) {
       if(err) {
           return res.redirect('/');
       }
-      cart.add(comic.id);
+      cart.add(comic, comic.id);
       req.session.cart = cart;
       console.log("Comic added!");
-      res.redirect('/');
+      res.redirect('/catalogue');
   })
 });
 
@@ -53,6 +53,16 @@ router.get('/cart', function (req, res, next) {
   }
   const cart = new Cart(req.session.cart);
   return res.render("cart", {products: cart.generateArray(), totalPrice: cart.totalPrice});
+});
+
+//remove items from cart
+
+router.get('/cart/remove/:id', function (req, res, next) {
+  const comicId = req.params.id;
+  const cart = new Cart(req.session.cart ? req.session.cart : {});
+  cart.removeItem(comicId);
+  req.session.cart = cart;
+  res.redirect('/cart');
 });
 
 
