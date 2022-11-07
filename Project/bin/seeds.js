@@ -36,7 +36,7 @@ const comic = [
     
   {
     title: "Action Comics No. 40",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/1/w400/1534.jpg?-427877442725006806",
+    img: "https://i.imgur.com/TRwqBIx.jpg",
     author: "Fred Ray",
     comicSeries: "Action Comics",
     year: "1938" ,
@@ -72,7 +72,7 @@ const comic = [
   },
   {
     title: "Action Comics No. 27",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/0/w400/552.jpg?22604016172757585",
+    img: "https://i.imgur.com/sFXx9ni.jpg",
     author: "Paul Cassidy",
     comicSeries: "Action Comics",
     year: 1940,
@@ -84,7 +84,7 @@ const comic = [
   },
   {
     title: "Action Comics No. 150",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/0/w400/675.jpg?-3446610073624033811",
+    img: "https://i.imgur.com/4csktko.jpg",
     author: "Wayne Boring",
     comicSeries: "Action Comics",
     year: 1950,
@@ -120,7 +120,7 @@ const comic = [
   },
   {
     title: "Batman #118",
-    img: "https://files1.comics.org//img/gcd/covers_by_id/2/w400/2580.jpg?-6874816770774378318",
+    img: "https://i.imgur.com/0UeAVae.jpg",
     author: "Sheldon Moldoff",
     comicSeries: "Batman",
     year: 1940,

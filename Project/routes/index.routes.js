@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 //const { default: mongoose } = require('mongoose');
 const Comic = require("../models/Comics.model")
+const Cart = require('../models/ShoppingCart.model');
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -28,15 +29,7 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
   }
   
 })
-// --------------------- Shopping Cart Routes ------------------------
-router.get("/cart", async (req, res, next) => {
-  try {
-    res.render("cart")
-  }
-  catch (err) {
-    console.log("Error getting into the cart")
-  }
-})
+
 
 
 module.exports = router;
