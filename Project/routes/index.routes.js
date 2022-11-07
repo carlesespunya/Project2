@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-//const { default: mongoose } = require('mongoose');
+
 const Comic = require("../models/Comics.model");
 const Item = require('../models/Items.model');
 const Cart = require('../models/ShoppingCart.model');
+
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -34,14 +35,19 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
 //TESTING CART ROUTES
 
 router.post("/catalogue/:comicId/add", async (req, res, next) => {
-  console.log("we are inside!")
+  //console.log("we are inside!")
+  const currUser = req.session.currentUser
+  console.log(currUser)
+
   const {comicId} = req.params
-  console.log(comicId)
+
   try{
-    // const comics = await Comic.findById(comicId)
-    // console.log(comics);
     const newItem = await Item.create({comicId})
     console.log(newItem)
+    const findCarrito = await Cart.findOne({ userId: currUser})
+    console.log(findCarrito)
+    const addItemtoCarro = await Item.updateOne({newItem, cartId: findCarrito})
+    console.log(addItemtoCarro)
     //res.render("product-details", comicId)
   }
   catch(err){console.log(err)}
