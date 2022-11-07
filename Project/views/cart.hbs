@@ -9,7 +9,11 @@
                 <button type="submit">Delete Item</button>
             </form>
         </div>
-{{/each}}
+    {{/each}}
+        <form action="cart/checkout" method="post">
+            <button type="submit">CHECKOUT</button>
+        </form>
+</div>
 {{else}}
     <h2>Ooops, seems like your cart is empty 🥺</h2>
 {{/if}}
