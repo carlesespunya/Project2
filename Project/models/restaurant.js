@@ -14,7 +14,8 @@ const restaurantSchema = new Schema(
       required: true,
       enum: ["Arabic", "Argentinian", "Bar", "Brazilian", "Burgers", "Chinese", "Korean", "Creperie", 
       "Brunch", "Fusion", "Greek", "Galician", "Halal", "Kosher", "Ice Cream", "Indian", "Mediterranean", 
-      "Lebanese", "Japanese", "Indian",  "Kebab", "Malasian", "Mexican", "Italian", "Poke", "Sirian", "Sushi", "Vegan", "Vegetarian", "Vietnamese", "Coffee Shop"]
+      "Lebanese", "Japanese", "Indian",  "Kebab", "Malasian", "Mexican", "Italian", "Poke", "Sirian", "Sushi", 
+      "Vegan", "Vegetarian", "Vietnamese", "Coffee Shop", "Steakhouse", "Tapas"]
     },
 
     address: {
@@ -62,4 +63,4 @@ const restaurantSchema = new Schema(
 
 const Restaurant = model("Restaurant", restaurantSchema);
 
-module.exports = User;
+module.exports = Restaurant;

@@ -20,4 +20,98 @@ const createSeeds = async function () {
   }
 }
 
+
+const Restaurants = [
+  {
+    name: "Two Schmucks",
+    style: "Bar", 
+    address: "Carrer de Joaquín Costa, 52, 08001 Barcelona",
+    price: "€€",
+    phonenumber: 685309575,
+    picture: "https://www.theworlds50best.com/discovery/filestore/jpg/TwoSchmucks-Barcelona-Spain-02.jpg",
+    instagram: "https://www.instagram.com/two.schmucks/?hl=es",
+    wifi: true,
+    coworking: false,
+    delivery: false
+  },
+
+  {
+    name: "Paradiso",      
+    style: "Bar", 
+    address: "Carrer de Rera Palau, 4, 08003 Barcelona", 
+    price: "€€",
+    phonenumber: 933607222,
+    picture: "https://paradiso.cat/wp-content/uploads/2020/05/the_cloud.jpg", 
+    instagram: "https://www.instagram.com/paradiso_barcelona/?hl=es", 
+    wifi: true,
+    coworking: false,
+    delivery: false, 
+
+  },
+
+  {
+    name: "Bobby's Free",      
+    style: "Bar", 
+    address: "C/ de Pau Claris, 85, 08010 Barcelona", 
+    price: "€€",
+    phonenumber: 000000,
+    picture: "https://www.gastronosfera.com/sites/default/files/uploads/gatronosfera_bobbydrink-53.jpg", 
+    instagram: "https://www.instagram.com/bobbysfree/?hl=es", 
+    wifi: true,
+    coworking: false,
+    delivery: false, 
+
+  },
+
+  {
+    name: "Brasería La Selva Barcelona",      
+    style: "Steakhouse", 
+    address: "Carrer de la Indústria, 138, 08025 Barcelona", 
+    price: "€€",
+    phonenumber: 933487299,
+    picture: "https://media.timeout.com/images/104717624/750/422/image.jpg", 
+    instagram: "https://www.instagram.com/laselvabarcelona/", 
+    wifi: true,
+    coworking: false,
+    delivery: false, 
+
+  },
+
+  {
+    name: "Casa Lolea",      
+    style: "Tapas", 
+    address: "Carrer de Sant Pere Més Alt 49, 08003 Barcelona", 
+    price: "€€",
+    phonenumber: 936241016,
+    picture: "https://www.lolea.com/wp-content/uploads/2020/12/casa-lolea-23-baja-1600x1200.jpg", 
+    instagram: "https://www.instagram.com/casalolea/", 
+    wifi: true,
+    coworking: false,
+    delivery: false, 
+
+  },
+
+  {
+    name: "Billy Brunch",      
+    style: "Brunch", 
+    address: "Carrer de Bailèn, 115, 08009 Barcelona ", 
+    price: "€€",
+    phonenumber: 000000,
+    picture: "https://www.metropoliabierta.com/uploads/s1/19/19/48/6/aperturabilly.jpeg", 
+    instagram: "https://www.instagram.com/billybrunch/?hl=es", 
+    wifi: true,
+    coworking: false,
+    delivery: false, 
+
+  },
+
+  {
+    // this second object adds extra properties: `createdAt` and `updatedAt`
+    timestamps: true,
+  }
+
+
+]
+
+
 createSeeds()
