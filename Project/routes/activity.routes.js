@@ -16,13 +16,13 @@ router.post("/create", async (req, res) => {
   
   try{
       const newActivity = await Activity.create({name, description, _id})
-     
       res.redirect("/")
   }catch (err){
       console.log(err)
       res.render("activity/new-activity")
   }
 })
+
 
 router.get("/", async (req, res) => {
   try{
