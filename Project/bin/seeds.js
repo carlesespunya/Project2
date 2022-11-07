@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 // Require the models,  Example: (-- const Book = require("../models/Book.model") --)
 
-const MONGO_URI = "mongodb://localhost:27017/project2"
+const MONGO_URI = "mongodb://localhost:27017/appetito"
 
 
 const createSeeds = async function () {
