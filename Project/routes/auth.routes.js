@@ -62,6 +62,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
     .then((hashedPassword) => {
       // Create a user and save it in the database
       return User.create({ username, email, password: hashedPassword });
+      // cart. create
+      // user . update user.cart (actualizamos con el nuevo cart Id)
     })
     .then((user) => {
       res.redirect("/auth/login");
