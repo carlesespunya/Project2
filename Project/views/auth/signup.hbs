@@ -1,6 +1,10 @@
 <div id="form">
-  <h2>Sign Up</h2>
+  <h2>Create Account</h2>
   <form action="/auth/signup" method="POST">
+
+    <label> Full Name
+      <input type="text" name="fullname" placeholder="Your full name" />
+    </label>
 
     <label> Username
       <input type="text" name="username" placeholder="Your username" />
@@ -13,6 +17,11 @@
     <label> Password
       <input type="password" name="password" placeholder="Your password" />
     </label>
+
+    <label> Upload Image
+      <input type="file"accept="image/png, image/jpeg" name="profileImage" placeholder="Profile Images" >
+    </label>
+
 
     <button type="submit">Sign Up</button>
 
