@@ -81,7 +81,7 @@ const Restaurants = [
 
   {
     name: "Casa Lolea",      
-    style: "Tapas", 
+    style: "Bar", 
     address: "Carrer de Sant Pere Més Alt 49, 08003 Barcelona", 
     price: "€€",
     phonenumber: 936241016,
