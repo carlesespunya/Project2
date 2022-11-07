@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const Restaurant = require("../models/restaurant")
 
 // Require the models,  Example: (-- const Book = require("../models/Book.model") --)
 
@@ -9,6 +10,7 @@ const createSeeds = async function () {
   try {
     const connect = await mongoose.connect(MONGO_URI)
     console.log(`Connected to database: ${connect.connections[0].name}`)
+    await Restaurant.create(Restaurants)
 
     // Clear DB,  Example: (-- const deleteAll = await Book.deleteMany() --)
     // console.log("Db clean")
@@ -104,13 +106,6 @@ const Restaurants = [
     delivery: false, 
 
   },
-
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
-  }
-
-
 ]
 
 

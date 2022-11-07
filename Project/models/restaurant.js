@@ -24,7 +24,7 @@ const restaurantSchema = new Schema(
     },
    
     price: {
-      type: Number,
+      type: String,
       required: true 
     },
     phonenumber: {
