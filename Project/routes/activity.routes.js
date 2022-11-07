@@ -3,8 +3,6 @@ const router = express.Router();
 
 const Activity = require("../models/Activity.model")
 
-/* GET home page */
-
 
 
 router.get("/create", (req, res) => {
