@@ -16,7 +16,6 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
     const findCarrito = await Cart.findOne({ userId: currUser})
     //console.log(findCarrito)
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
-    console.log(carritoItems[0].comicId.title)
     res.render("cart", {carritoItems}) 
   }
   catch(err){
