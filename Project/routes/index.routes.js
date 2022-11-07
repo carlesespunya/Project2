@@ -10,6 +10,36 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 
+router.get("/cart", isLoggedIn, async (req, res, next) => {
+  try{
+    const currUser = req.session.currentUser
+    const findCarrito = await Cart.findOne({ userId: currUser})
+    //console.log(findCarrito)
+    const carritoItems = await Item.find({cartId: findCarrito._id})
+    console.log(carritoItems)
+    res.render("cart", {carritoItems}) 
+  }
+  catch(err){
+    console.log(err)
+  }
+})
+
+// router.get("/cart", async (req, res) => {
+//   console.log("Done")
+//   try {
+//     const user = req.session.currentUser
+//     const carrito = await Cart.findOne({userId: user})
+//     const carrItems = await Item.find({cartId: carrito._id})
+//     res.render("cart", carrItems)
+//   } catch (err) {
+//     console.log(err)
+//   }
+//   console.log("carttt")
+// })
+
+
+
+
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -36,7 +66,7 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
   
 })
 
-//TESTING CART ROUTES
+//CART ROUTES
 
 router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
   //console.log("we are inside!")
@@ -52,10 +82,11 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
     console.log(findCarrito)
     const addItemtoCarro = await Item.updateMany({newItem, cartId: findCarrito})
     console.log(addItemtoCarro)
-    //res.render("product-details", comicId)
+    //res.redirect("cart")
   }
   catch(err){console.log(err)}
 })
+
 
 
 
