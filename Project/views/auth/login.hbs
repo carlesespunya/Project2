@@ -1,6 +1,15 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{appTitle}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
 <div id="login-form">
   <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
+  <form action="/login" method="POST">
 
     {{!-- <label> Username
       <input type="text" name="username" placeholder="Your username" />
@@ -22,3 +31,49 @@
     {{/if}}
   </form>
 </div>
+
+
+  <body>
+    <nav>
+      <ul class="nav-bar">
+        <li id="to-left">
+          <img class="van-logo" src="images/van-logo.png" alt="">
+          {{!-- <p>AIRBNVAN</p> --}}
+        </li>
+        <li id="to-center">
+          <button>
+            <a href="/">
+            <img src="images/home.png">
+            </a>
+          </button>
+        </li>
+        <li id="to-right">
+          <a href="/signup">Signup</a> <span> | </span>
+          <a href="/login">Login</a> 
+          
+        </li>
+      </ul>
+    </nav>
+
+
+
+    {{#if user}}
+         <footer>
+            <a href="/map" id="mapLogo">
+            <img src="images/map-logo.png">
+            </a>  
+            <a href="/addSpot" id="addLogo">
+            <img src="images/add-logo.png">
+            </a>
+            <a href="/profile" id="profileLogo">
+            <img src="images/profile-logo.png">
+            </a>
+          </footer>
+        {{/if}}
+  
+
+    <script src="/js/script.js"></script>
+  </body>
+
+
+</html>

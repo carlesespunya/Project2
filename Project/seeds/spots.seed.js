@@ -29,21 +29,21 @@ const createObjects = async function() {
                 fullName: "Laura Cruzado",
                 username: "Lcruzado92",
                 email: "laura.bcn_upc@gmail.com",
-                password:"$2b$10$3/SPidZP7PFNCIr2uJNgqOtEHc7KMbtiowxiYzhvsvf3hP0Ax6Q/S",
+                password:"$2b$10$ZZSbVKPa7S8YnIpEsF1BFOlCkHZt9CL3k81RZCJxtYtB7CH5UcO92",
                 // savedSpots: [dbSpots[1]._id],
             },
             {
                 fullName: "Jessica Cobo",
                 username: "Jess_CF",
                 email: "jess.cobo@gmail.com",
-                password:"SPidZP7PFNCIr2uJNgqOtEHc7KMbtiowxiYzhvsvf3hP0Ax6Q",
+                password:"$2b$10$ZZSbVKPa7S8YnIpEsF1BFOlCkHZt9CL3k81RZCJxtYtB7CH5UcO92",
                 // savedSpots: [dbSpots[0]._id,dbSpots[3]._id]
             },
             {
                 fullName: "Pablo Fernández",
                 username: "Ferna92",
                 email: "pablito.ferna_92@gmail.com",
-                password:"SPidZP7PFNCIr2uJNgqOtEHc7KMbtiowxiYzhvsvf3hP0Ax6Q"
+                password:"$2b$10$ZZSbVKPa7S8YnIpEsF1BFOlCkHZt9CL3k81RZCJxtYtB7CH5UcO92"
             }
         ]
         const dbUser = await User.create(users)
