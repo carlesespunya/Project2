@@ -20,7 +20,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-  },
+    cart: {
+      type: Schema.Types.ObjectId, ref: 'Cart'
+  }
+},
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
