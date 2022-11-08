@@ -41,7 +41,8 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  const user = req.session.currentUser
+  res.render("index", {user});
 });
 // ------------------------ catalogue Routes ------------------------
 router.get("/catalogue", async (req, res, next) => {
