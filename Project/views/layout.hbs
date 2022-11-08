@@ -9,29 +9,45 @@
   </head>
 
   <body>
-    <nav>
-      {{#if user}}
+    <header>
+      
+    </header>
+        <img class="logo" src="/images/travelsouls-logo.png" alt="logo img">
+    
+        <nav id="nav-container">
+        
+        {{#if user}}
 
-        {{!-- {{#with dbUser}} --}}
-        <a href="/user-profile/{{userId._id}}">Profile</a>
-        {{!-- {{/with}} --}}
+          <a href="/user-profile/{{userId._id}}">Profile</a>
 
-        <form id="logout-form" action="/auth/logout" method="POST">
-          <button>Logout</button>
-        </form>
+          <form id="logout-form" action="/auth/logout" method="POST">
+            <button>Logout</button>
+          </form>
 
-      {{/if}}
+        {{/if}}
 
-      {{#unless user}}
-        <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a>
-      {{/unless}}
 
-    </nav>
 
-    {{{body}}}
+        {{#unless user}}
 
-    <script src="/js/script.js"></script>
+        <ul class="nav-links">
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/login">Login</a></li>
+        </ul>
+
+        {{/unless}}
+
+      </nav>
+    </header>
+    
+    <div>
+
+      {{{body}}}
+      
+    </div>
+
+      <script src="/js/script.js"></script>
+
   </body>
 
 </html>
