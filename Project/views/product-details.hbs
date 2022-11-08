@@ -9,11 +9,18 @@
     <button type="submit">ADD TO CART</button>
     </form>
     <p>{{comic.synopsis}}</p>
+    <br>
+    <hr>
+    <br>
+
         <div class="reviews">
             <h2>Reviews</h2>
-                <h3>By: jhon456</h3>
-                <h4>⭐️⭐️⭐️⭐️</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae ipsum ut turpis tristique vehicula. Phasellus vitae ornare lorem. Quisque venenatis et nulla nec euismod. Donec vel nibh ut sapien ornare convallis. </p>
+            {{#each reviewIds}}
+            <h3>{{title}}</h3>
+            <h4>{{rating}}</h4>
+            <h4>Username: {{username}} </h4>
+            <p>{{content}}</p>
+            {{/each}}
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ const reviewSchema = new Schema(
   {
     title: String,
     userId: {type: Schema.Types.ObjectId, ref: 'User'},
+    username: String,
     comicId: {type: Schema.Types.ObjectId, ref: 'Comic'},
     content: String,
     rating: String,

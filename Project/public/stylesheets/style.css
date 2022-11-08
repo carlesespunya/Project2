@@ -339,6 +339,32 @@ height: 70px;
 } 
 
 /* USER PROFILE CSS */
-
-
-
+.user-container{
+  font-family: "Gudea-Regular";
+  color: #3F7B90;
+}
+.user-container h2 {
+  font-size: 3em;
+  color: #3F7B90;
+  font-family: "Skranji";
+}
+.user-container h2 > strong {
+  color: #D07D56; 
+}
+.user-container > h3 {
+  font-size: 1.5em;
+  color: #3F7B90;
+  background-color: white;
+}
+.purchase-history {
+  display: flex;
+  flex-flow: row-reverse;
+  background-color: white;
+  justify-content: space-evenly;
+}
+.purchases-card {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 10px;
+}
