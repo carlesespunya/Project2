@@ -13,7 +13,8 @@ router.get("/user-profile", isLoggedIn, async (req, res) => {
     console.log(user)
 
     try {
-        const userProfile = await User.findById(user._id)
+        const userProfile = await User.findById(user._id).populate("activityIds")
+        console.log(userProfile)
         res.render("user/user-profile", {userProfile, user})
 
     } catch (error) {

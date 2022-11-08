@@ -63,7 +63,7 @@ router.post('/edit/:activityId', async (req, res, next) => {
 
   try{
   const actiDb = await Activity.findByIdAndUpdate(activityId, { activity, description}, { new: true })
-  res.redirect(`/myActivities`)
+  res.redirect(`/user-profile`)
 
   }catch(err){
     console.log(err)
@@ -74,7 +74,7 @@ router.post('/description/:activityId/delete', async (req, res) => {
   const {activityId}  = req.params;
  try{
     const deletedb = await Activity.findByIdAndDelete(activityId)
-    res.redirect('/myActivities')
+    res.redirect('/user-profile')
  }catch(errr){
     console.log(errr);
  } 
@@ -82,16 +82,6 @@ router.post('/description/:activityId/delete', async (req, res) => {
     
 });
 
-router.get("/myActivities", async (req, res) => {
-  const user = req.session.currentUser;
-  try{
-    const userDb = await User.findById(user._id).populate("activityIds")
-    console.log(userDb)
-    res.render("activity/activity-list", {userDb, user})
-  }catch(err){
-     console.log(err)
-  }
-});
 
 
 module.exports = router
