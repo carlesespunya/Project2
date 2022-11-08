@@ -89,10 +89,19 @@ const createObjects = async function() {
             const randNum = Math.floor(Math.random() * 3)
             userRand = dbUser[randNum]
            
-            let commentLikecr = await CommentLike.create({user: userRand._id, comment: comment._id})
+            const commentLikecr = await CommentLike.create({user: userRand._id, comment: comment._id})
             const commentUpdated = await Comment.findByIdAndUpdate(comment._id,{ $push: { commentLike: commentLikecr._id } } )
-            const userLike = await User.findByIdAndUpdate(userRand._id,{ $push: { commentLike: commentLikecr._id }} )
+
+            
         })
+
+        const allLikes = await CommentLike.find()
+
+        allLikes.forEach(async (commentLike) => {
+  
+            const userUpdate = await User.findByIdAndUpdate(commentLike.user,{ $push: { commentLike: commentLike._id } } )
+        })
+
 
         const spots = [
             {
