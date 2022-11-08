@@ -3,8 +3,10 @@
 
 <h2>Activities</h2>
 {{#each activityDb}}
-<a href="/description/{{this._id}}"><p>Name: {{this.name}}</p></a>
-<p>Description: {{this.description}}</p>
+<a href="/description/{{this._id}}"><p>Activity: {{this.activity}}</p></a>
+<p>Find: {{this.find}}</p>
+<p>From: {{this.from}}</p>
+<p>To: {{this.to}}</p>
 <p>---------------------------------</p>
 
 {{/each}}

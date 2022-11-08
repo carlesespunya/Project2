@@ -45,6 +45,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
       enum: ['single', 'in a relationship']
+    },
+    activityIds: {
+      type: [{ type: Schema.Types.ObjectId, ref: 'Activity' }],
     }
   },
   
