@@ -4,6 +4,7 @@ const Spot = require("../models/Spot.model")
 const Comment = require("../models/Comment.model")
 const User = require("../models/User.model")
 const CommentLike = require("../models/CommentLike.model")
+const UserSpot = require("../models/UserSpot.model")
 const bcrypt = require("bcrypt");
 
 const MONGO_URI = "mongodb://localhost:27017/Project_park4night";
@@ -188,10 +189,23 @@ const createObjects = async function() {
             }
         ];
         const dbSpots = await Spot.create(spots)
-        const userUpdate = await User.findByIdAndUpdate(dbUser[1]._id, { $push: { savedSpots: dbSpots[0]._id} }, { $push: { savedSpots: dbSpots[2]._id} })
-        const userUpdate2 = await User.findByIdAndUpdate(dbUser[0]._id, { $push: { savedSpots: dbSpots[3]._id} } )
-        const userUpdate3 = await User.findByIdAndUpdate(dbUser[2]._id, { $push: { savedSpots: dbSpots[1]._id} } )
-        
+
+        dbUser.forEach(async (dbUser) => {
+            const randNum = Math.floor(Math.random() * 5)
+            spotRandom = dbSpots[randNum]
+
+            const userSpot = await UserSpot.create(({user: dbUser._id, spot: spotRandom._id }))
+            const userUpdate = await User.findByIdAndUpdate(dbUser._id,{ $push: { UserSpot: userSpot._id } } )
+        })
+
+        const allSavedSpots = await UserSpot.find()
+
+        allSavedSpots.forEach(async (savedSpot) => {
+  
+            const spotUpdate = await Spot.findByIdAndUpdate(savedSpot.spot,{ $push: { UserSpot: savedSpot.user } } )
+        })
+
+   
 
         const dbClose = await mongoose.connection.close()
         console.log("Connection closed")

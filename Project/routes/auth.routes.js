@@ -177,6 +177,12 @@ router.get("/profile", isLoggedIn, (req, res) => {
   
 });
 
+router.get("/saved-spots", isLoggedIn,async (req, res) => {
+  console.log(req.session.currentUser)
+  const UserSaved = await User.findById(req.session.currentUser._id).populate("savedSpots")
+  res.render("spots/list-spots", UserSaved );
+  
+});
 
 
 
