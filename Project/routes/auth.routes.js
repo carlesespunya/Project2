@@ -154,15 +154,23 @@ router.get("/logout", isLoggedIn, (req, res) => {
 });
 
 
-//GET /auth/spot
+//GET /spots/spot
+router.get("/spot", (req, res) => {
+  res.render("spots/spot");
+});
+
+
+//GET /spots/addSpot
 router.get("/addSpot", (req, res) => {
   res.render("spots/addSpot");
 });
 
-//GET /auth/profile
+//GET /users/user-profile
 router.get("/profile", (req, res) => {
   res.render("users/user-profile");
 });
+
+
 
 
 
