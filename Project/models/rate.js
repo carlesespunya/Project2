@@ -7,14 +7,14 @@ const rateSchema = new Schema(
         type: {type: Schema.Types.ObjectId, ref:"User"},
 
       },
-      restaurant: {
-        
+    restaurant: {
+
         type: {type: Schema.Types.ObjectId, ref:"Restaurant"},
 
       },
    
     rate: {
-      type: Boolean,
+      type: Number
     },
 
     review: {

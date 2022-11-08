@@ -11,8 +11,18 @@ const Rate = require("../models/rate");
 router.get('/restaurants' , async (req, res) => {
     try {
         const dbRestaurants = await Restaurant.find()
-        console.log(dbRestaurants)
         res.render('restaurants/restaurant-list', { dbRestaurants })
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+// Ruta creada del restaurant-list al restaurantCard
+
+router.get('/restaurants/restaurant-list' , async (req, res) => {
+    try {
+        const dbRestaurants = await Restaurant.find()
+        res.render('restaurants/restaurantCard', { dbRestaurants })
     } catch (error) {
         console.log(error)
     }
@@ -55,21 +65,18 @@ router.get("/restaurants/:restaurantId", async (req, res) => {
     const rate = req.body
     try {
         console.log(req.body)
-        const userId = "636961b98d81ff3624589c3f"
-        const user = await User.findById(userId)
+        const user = req.session.currentUser
+        const userId = user._id
         const restaurantId = req.params.restaurantId
         const restaurant = await Restaurant.findById(restaurantId)
-        let rate = true
+        let rate = 0
         const review = req.body.review
         if (req.body.rate === "like") {
-            rate = true
+            rate = 1
         } else if (req.body.rate === "dislike") {
-            rate = false
+            rate = -1
         }
-        let newRate = await Rate.create({rate, review})
-        newRate.user = user
-        newRate.restaurant = restaurant
-        res.redirect('/restaurants') 
+
     } catch (error) {
         console.log(error)
     }
