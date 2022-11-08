@@ -3,8 +3,9 @@
 {{#each purchases}}
     <div class="purchases-card">
         <h4>{{title}}</h4>
-        <p>{{price}}<p>
+        <p>${{price}}<p>
         <img class="purchases-img" src="{{img}}" alt="">
+        <a href="{{_id}}/review">Leave a review</a>
     </div>
 {{/each}}
 

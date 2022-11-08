@@ -142,5 +142,19 @@ router.get("/myprofile", isLoggedIn, async(req, res, next) => {
   }
 })
 
+//review page
+router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
+  res.render("review-form")
+})
+// router.post("/:comicId/review/post", isLoggedIn, async(req, res, next) => {
+//   const {comicId} = req.params
+//   const reviewBody = req.body
+//   console.log(reviewBody)
+//   try{
+//     const updateComic = await Comic.findByIdAndUpdate(comicId, {reviewIds: reviewBody})
+//   }
+//   catch(err){console.log(err)}
+// })
+
 
 module.exports = router;
