@@ -8,9 +8,18 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 
-router.get("/user-profile", isLoggedIn, (req, res) => {
+router.get("/user-profile", isLoggedIn, async (req, res) => {
     const user = req.session.currentUser;
-    res.render("user/user-profile", {user});
+    console.log(user)
+
+    try {
+        const userProfile = await User.findById(user._id)
+        res.render("user/user-profile", {userProfile, user})
+
+    } catch (error) {
+        console.log(error)
+    }
+
 })
 
 

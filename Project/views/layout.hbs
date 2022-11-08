@@ -12,9 +12,9 @@
     <nav>
       {{#if user}}
 
-        {{#with dbUser}}
-        <a href="/user-profile/{{this._id}}">Profile</a>
-        {{/with}}
+        {{!-- {{#with dbUser}} --}}
+        <a href="/user-profile/{{userId._id}}">Profile</a>
+        {{!-- {{/with}} --}}
 
         <form id="logout-form" action="/auth/logout" method="POST">
           <button>Logout</button>
