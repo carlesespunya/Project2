@@ -31,8 +31,8 @@ const actSchema = new Schema(
       required: true,
     }
     // location: {
-    //   type: Location,
-    // },
+    //   type: Location
+    // }
     
   },
   {
