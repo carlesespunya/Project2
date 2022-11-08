@@ -1,0 +1,12 @@
+<div id="profile">
+    <div class="profilePic">
+        <img src="images/Alex.jpg" alt="">
+    </div> 
+    {{#each Spot}}
+        <h3>{{this.title}}</h3>
+        <a href="/spot/{{_id}}">See details</a>
+        <form action="/spot/{{_id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+{{/each}}
+</div>

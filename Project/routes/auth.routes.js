@@ -160,20 +160,16 @@ router.post("/logout", isLoggedIn, (req, res) => {
 });
 
 
-//GET /spots/spot
-router.get("/spot", (req, res) => {
-  res.render("spots/spot");
-});
-
-
-//GET /spots/addSpot
-router.get("/addSpot", (req, res) => {
-  res.render("spots/addSpot");
-});
 
 //GET /users/user-profile
 router.get("/profile", isLoggedIn, (req, res) => {
   res.render("users/user-profile", req.session.currentUser );
+  
+});
+
+//GET /users/user-spots
+router.get("/user-spots", isLoggedIn, (req, res) => {
+  res.render("users/user-spots", req.session.currentUser );
   
 });
 
