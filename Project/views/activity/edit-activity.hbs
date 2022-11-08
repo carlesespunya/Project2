@@ -1,0 +1,16 @@
+<h2>Edit the activity: {{actiDb.description}}</h2>
+ 
+<form action="/edit/{{actiDb._id}}" method="post">
+  <label> Name:
+    <input type="text" name="name" value="{{actiDb.name}}" />
+  </label>
+ 
+
+  <label> Description:
+    <textarea name="description" cols="30" rows="4">{{actiDb.description}}</textarea>
+  </label>
+ 
+ 
+ 
+  <button>Save changes</button>
+</form>

@@ -65,6 +65,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     })
     .then((user) => {
       res.redirect("/auth/login");
+      req.session.currentUser = user
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
