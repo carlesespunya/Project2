@@ -21,33 +21,32 @@ body {
 
 }
 
-header {
+#nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 10%;
+  padding: 1rem 5%;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  padding: 1rem;
 }
 
 li, a {
   text-decoration: none;
 }
 
-#nav-container {
-  height: 3vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .logo {
   height: 3rem;
 }
 
-/* #welcome {
-  padding-top: 2rem;
-}
-
 #img-travelbuddy {
+  /* padding: 1rem; */
   max-width: 100%;
   height: auto;
-} */
+}
