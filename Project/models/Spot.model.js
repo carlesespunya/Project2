@@ -40,7 +40,7 @@ const spotSchema = new Schema(
     webpage: {
         type: String,
     },
-    UserSpot: [{ type: Schema.Types.ObjectId, ref: 'UserSpot' }],
+    UserSpot: { type: Schema.Types.ObjectId, ref: 'UserSpot' },
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
     description: {
         type: String,

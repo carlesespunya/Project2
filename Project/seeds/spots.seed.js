@@ -21,6 +21,7 @@ const createObjects = async function() {
         const deleteAll1 = await Comment.deleteMany()
         const deleteAll2 = await User.deleteMany()
         const deleteAll3 = await Spot.deleteMany()
+        const deleteAll4 = await UserSpot.deleteMany()
 
         console.log("Db clean")
       
@@ -48,6 +49,7 @@ const createObjects = async function() {
             }
         ]
         const dbUser = await User.create(users)
+       
         const comments = [
             {
                 description: "Great spot! Really quiet. You can buy food in the village and you will find electricity there as well.",
@@ -102,7 +104,7 @@ const createObjects = async function() {
   
             const userUpdate = await User.findByIdAndUpdate(commentLike.user,{ $push: { commentLike: commentLike._id } } )
         })
-
+       
 
         const spots = [
             {
@@ -189,23 +191,22 @@ const createObjects = async function() {
             }
         ];
         const dbSpots = await Spot.create(spots)
+       
+        
+        const userSpot = await UserSpot.create({user: dbUser[0]._id, spot: dbSpots[0]._id })
+        const userSpot2 = await UserSpot.create({user: dbUser[1]._id, spot: dbSpots[1]._id })
+        const userSpot3 = await UserSpot.create({user: dbUser[1]._id, spot: dbSpots[3]._id })
+        const userSpot4 = await UserSpot.create({user: dbUser[2]._id, spot: dbSpots[2]._id})
 
-        dbUser.forEach(async (dbUser) => {
-            const randNum = Math.floor(Math.random() * 5)
-            spotRandom = dbSpots[randNum]
-
-            const userSpot = await UserSpot.create(({user: dbUser._id, spot: spotRandom._id }))
-            const userUpdate = await User.findByIdAndUpdate(dbUser._id,{ $push: { UserSpot: userSpot._id } } )
-        })
-
-        const allSavedSpots = await UserSpot.find()
-
-        allSavedSpots.forEach(async (savedSpot) => {
-  
-            const spotUpdate = await Spot.findByIdAndUpdate(savedSpot.spot,{ $push: { UserSpot: savedSpot.user } } )
-        })
-
-   
+        const userUpdate1 = await User.findByIdAndUpdate(dbUser[0]._id,{ $push: { UserSpot: userSpot._id } } )
+        const userUpdate2 = await User.findByIdAndUpdate(dbUser[1]._id,{ $push: { UserSpot: userSpot2._id } } )
+        const userUpdate3 = await User.findByIdAndUpdate(dbUser[1]._id,{ $push: { UserSpot: userSpot3._id } } )
+        const userUpdate4 = await User.findByIdAndUpdate(dbUser[2]._id,{ $push: { UserSpot: userSpot4._id } } )
+           
+        const spotUpdate1 = await Spot.findByIdAndUpdate(dbSpots[0]._id,{ $push: { UserSpot: userSpot._id } } )
+        const spotUpdate2 = await Spot.findByIdAndUpdate(dbSpots[1]._id,{ $push: { UserSpot: userSpot2._id } } )
+        const spotUpdate3 = await Spot.findByIdAndUpdate(dbSpots[2]._id,{ $push: { UserSpot: userSpot4._id } } )
+        const spotUpdate4 = await Spot.findByIdAndUpdate(dbSpots[3]._id,{ $push: { UserSpot: userSpot3._id } } )
 
         const dbClose = await mongoose.connection.close()
         console.log("Connection closed")
