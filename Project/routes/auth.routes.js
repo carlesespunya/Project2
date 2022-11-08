@@ -160,16 +160,6 @@ router.post("/logout", isLoggedIn, (req, res) => {
 });
 
 
-//GET /spots/spot
-router.get("/spot", (req, res) => {
-  res.render("spots/spot");
-});
-
-
-//GET /spots/addSpot
-router.get("/addSpot", (req, res) => {
-  res.render("spots/addSpot");
-});
 
 //GET /users/user-profile
 router.get("/profile", isLoggedIn, (req, res) => {
@@ -177,12 +167,15 @@ router.get("/profile", isLoggedIn, (req, res) => {
   
 });
 
+
+
 router.get("/saved-spots", isLoggedIn,async (req, res) => {
   console.log(req.session.currentUser)
   const UserSaved = await User.findById(req.session.currentUser._id).populate("savedSpots")
-  res.render("spots/list-spots", UserSaved );
+  res.render("spots/user-spots", UserSaved );
   
 });
+
 
 
 
