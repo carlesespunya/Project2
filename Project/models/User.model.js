@@ -21,13 +21,9 @@ const userSchema = new Schema(
       required: true,
     },
 
-    favorites: {
-      type: [{type: Schema.Types.ObjectId, ref:"Restaurant"}]
+    rateIds: {
+      type: [{type: Schema.Types.ObjectId, ref:"Rate"}],
     },
-
-    admin : {
-      type: Boolean
-    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

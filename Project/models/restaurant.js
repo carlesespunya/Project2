@@ -51,10 +51,10 @@ const restaurantSchema = new Schema(
       type: Boolean,
     },
 
-    petFriendly {
-      type: Boolean,
 
-    }
+    rateIds: {
+      type: [{type: Schema.Types.ObjectId, ref:"Rate"}],
+    },
 
   },
 
