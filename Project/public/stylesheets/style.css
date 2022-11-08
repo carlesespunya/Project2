@@ -333,9 +333,12 @@ height: 70px;
   background-color: #3F7B90;
   text-align: left;
 }
-.item-card > img {
+.item-card > img, .purchases-img{
   width: 70px;
 
 } 
+
+/* USER PROFILE CSS */
+
 
 

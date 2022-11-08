@@ -135,12 +135,27 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
 router.get("/myprofile", isLoggedIn, async(req, res, next) => {
   const user = req.session.currentUser
   try{
-    res.render("profile", {user})
+    const findUser = await User.findById(currUser).populate("purchases")
+    res.render("profile", findUser, {user})
   }
   catch(err){
     console.log(err)
   }
 })
+
+//review page
+router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
+  res.render("review-form")
+})
+// router.post("/:comicId/review/post", isLoggedIn, async(req, res, next) => {
+//   const {comicId} = req.params
+//   const reviewBody = req.body
+//   console.log(reviewBody)
+//   try{
+//     const updateComic = await Comic.findByIdAndUpdate(comicId, {reviewIds: reviewBody})
+//   }
+//   catch(err){console.log(err)}
+// })
 
 
 module.exports = router;

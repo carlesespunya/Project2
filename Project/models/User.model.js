@@ -24,7 +24,7 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId, ref: 'Cart'
   },
     purchases: [{
-      type: Schema.Types.ObjectId, ref: 'Comics'
+      type: Schema.Types.ObjectId, ref: 'Comic'
     }]
 },
   {

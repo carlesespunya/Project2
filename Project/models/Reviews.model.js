@@ -6,7 +6,7 @@ const reviewSchema = new Schema(
     userId: {type: Schema.Types.ObjectId, ref: 'User'},
     comicId: {type: Schema.Types.ObjectId, ref: 'Comic'},
     content: String,
-    rating: Number
+    rating: String,
   }
 );
 
