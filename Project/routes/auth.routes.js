@@ -64,7 +64,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
       return User.create({ firstName, lastName, username, email, password: hashedPassword, birthday, gender, status });
     })
     .then((user) => {
-      res.redirect("/");
+      res.redirect("/auth/login");
+      req.session.currentUser = user
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
