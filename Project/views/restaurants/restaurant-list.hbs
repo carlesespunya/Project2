@@ -1,15 +1,5 @@
 <h1>Restaurant List</h1>
-{{#each restaurantCard}}
-    <img src="{{this.image_url}}"
-    <p>{{this.style}}</p>
-    <p>{{this.address}}</p> 
-    <p>{{this.phonenumber}}</p>
-    <p>{{this.price}}</p>
-    <p>{{this.wifi}}</p>
-    <p>{{this.coworking}}</p>
-    <p>{{this.delivery}}</p>
-    <p>{{this.instagram}}</p>
 
-    {{/each}}
-
-
+{{#each dbRestaurants}}
+    <img src="{{this.picture}}"/>
+{{/each}}
