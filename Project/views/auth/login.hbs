@@ -1,20 +1,20 @@
+<h2>Log In</h2>
 <div id="login-form">
-  <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
+  <form class="login-card" action="/auth/login" method="POST">
 
-    <label> Username
+    <label> <p>Username</p> 
       <input type="text" name="username" placeholder="Your username" />
     </label>
 
-    <label> Email
+    <label> <p>Email</p>
       <input type="email" name="email" placeholder="Your email" />
     </label>
 
-    <label> Password
+    <label> <p>Password</p>
       <input type="password" name="password" placeholder="Your password" />
     </label>
 
-    <button type="submit">Log In</button>
+    <button type="submit">LOG IN</button>
 
 
     {{#if errorMessage}}
@@ -22,3 +22,4 @@
     {{/if}}
   </form>
 </div>
+<h4 id="login-details">Aren't a user yet? No worries, <a href="/auth/signup">SIGN UP</a> here!</h4>

@@ -1,0 +1,11 @@
+<h2>Hello, {{findUser.username}}! <br> Welcome to your page</h2>
+<h3>Your purchase history</h3>
+{{#each findUser.purchases}}
+    <div class="purchases-card">
+        <h4>{{title}}</h4>
+        <p>${{findUser.price}}<p>
+        <img class="purchases-img" src="{{img}}" alt="">
+        <a href="{{_id}}/review">Leave a review</a>
+    </div>
+{{/each}}
+
