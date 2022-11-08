@@ -44,6 +44,7 @@ router.get("/restaurants/:restaurantId", async (req, res) => {
     const restaurantId = req.params.restaurantId
     try {
       const restaurant = await Restaurant.findById(restaurantId)
+      
       res.render("restaurants/restaurantCard", restaurant)
     } catch (err) {
       console.log(err)
