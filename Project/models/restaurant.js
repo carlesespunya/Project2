@@ -51,6 +51,11 @@ const restaurantSchema = new Schema(
       type: Boolean,
     },
 
+    petFriendly {
+      type: Boolean,
+
+    }
+
   },
 
   {
