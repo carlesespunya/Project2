@@ -2,19 +2,19 @@
  
 <form action="/edit/{{actiDb._id}}" method="post">
   <label> Activity:
-    <input type="text" name="activity" value= "{{actiDb.activity}}" />
+    <input type="text" name="activity" value="{{actiDb.activity}}" />
   </label>
  
 
   <label> Description:
-    <textarea name="description" cols="30" rows="4">{{actiDb.description}}</textarea>
+    <textarea name="description" cols="30" rows="4" >{{actiDb.description}}</textarea>
   </label>
  
      <label> Activity for:
-      <input type="radio" name="find" value="couple"  /> Couple
-      <input type="radio" name="find" value="group of friends"  /> Group of friends
-      <input type="radio" name="find" value="date"  /> Date
-      <input type="radio" name="find" value="family"  /> Family
+      <input type="checkbox" name="find" value="couple"  /> Couple
+      <input type="checkbox" name="find" value="group of friends"  /> Group of friends
+      <input type="checkbox" name="find" value="date"  /> Date
+      <input type="checkbox" name="find" value="family"  /> Family
     </label>
 
     <label> From
