@@ -5,8 +5,6 @@ const Activity = require("../models/Activity.model")
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
 
-/* GET home page */
-
 
 
 router.get("/create", (req, res) => {

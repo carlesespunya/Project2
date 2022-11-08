@@ -2,17 +2,44 @@
   <h2>Sign Up</h2>
   <form action="/auth/signup" method="POST">
 
+    <label> First Name
+      <input type="text" name="firstName" placeholder="Homer" />
+    </label>
+
+    <label> Last Name
+      <input type="text" name="lastName" placeholder="Simpson" />
+    </label>
+
     <label> Username
-      <input type="text" name="username" placeholder="Your username" />
+      <input type="text" name="username" placeholder="SimpsonWooHoo" />
     </label>
 
     <label> Email
-      <input type="email" name="email" placeholder="Your email" />
+      <input type="email" name="email" placeholder="simpson@mail.com" />
     </label>
 
     <label> Password
-      <input type="password" name="password" placeholder="Your password" />
+      <input type="password" name="password" placeholder="******" />
     </label>
+
+    <label> Birthday
+      <input type="date" name="birthday" placeholder="Birthday" />
+    </label>
+
+    <label> Gender
+      <input type="radio" name="gender" value="female" placeholder="Birthday" /> Female
+      <input type="radio" name="gender" value="male" placeholder="Birthday" /> Male
+      <input type="radio" name="gender" value="they" placeholder="Birthday" /> They
+    </label>
+
+    <label> Relationship Status
+      <select name="status" placeholder="">
+        <option value="single">Single</option>
+        <option value="in a relationship">In a Relationship</option>
+      </select>
+    </label>
+
+
 
     <button type="submit">Sign Up</button>
 
