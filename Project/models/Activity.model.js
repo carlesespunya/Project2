@@ -2,24 +2,38 @@ const { Schema, model } = require("mongoose");
 
 const actSchema = new Schema(
   {
-    name: {
-      type: String,
+    author: { type: Schema.Types.ObjectId, ref: 'User'
     },
-    // activity: {
-
-    // },
+    activity: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
+      required: true,
     },
-    // type: {
-    //   type:  [String],
-    // },
+    find: {
+        type: Array,
+        items: {
+          enum: [ "couple", "group of friends", "date", "family" ]
+        },
+        "uniqueItems": true,
+        "minItems": 1
+    
+    },
+    
+    from: {
+      type: Date,
+      required: true,
+    },
+    to: {
+      type: Date,
+      required: true,
+    }
     // location: {
     //   type: Location,
     // },
-    // dates: {
-    //   type: Date,
-    // }
+    
   },
   {
     timestamps: true,

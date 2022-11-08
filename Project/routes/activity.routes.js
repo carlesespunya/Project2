@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Activity = require("../models/Activity.model")
+const User = require("../models/User.model")
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
 
@@ -15,10 +16,11 @@ router.get("/create", (req, res) => {
 
 
 router.post("/create", async (req, res) => {
-  const {name, description, _id} = req.body
-  
+  const {activity, description, find, from, to} = req.body
+  const author = req.session.currentUser._id
   try{
-      const newActivity = await Activity.create({name, description, _id})
+      const newActivity = await Activity.create({author, activity, description, find, from, to})
+      const userUpdated = await User.findByIdAndUpdate(author, { $push: { activityIds: newActivity._id } })
       res.redirect("/")
   }catch (err){
       console.log(err)
@@ -31,9 +33,9 @@ router.get("/description/:activityId", async (req, res) => {
   const user = req.session.currentUser;
   const {activityId}  = req.params
   try{
-    const actId = await Activity.findById(activityId)
-    console.log(actId)
-    res.render("activity/activity-description", {actId, user})
+    const act = await Activity.findById(activityId).populate("author")
+    console.log(act)
+    res.render("activity/activity-description", {act, user})
   }catch(err){
      console.log(err)
   }
@@ -55,13 +57,13 @@ router.get('/edit/:activityId', async (req, res) => {
 router.post('/edit/:activityId', async (req, res, next) => {
   const { activityId } = req.params;
   console.log(activityId)
-  const { name, description} = req.body;
-  console.log(name)
+  const { activity, description} = req.body;
+
   console.log(description)
 
   try{
-  const actiDb = await Activity.findByIdAndUpdate(activityId, { name, description}, { new: true })
-  res.redirect(`/`)
+  const actiDb = await Activity.findByIdAndUpdate(activityId, { activity, description}, { new: true })
+  res.redirect(`/myActivities`)
 
   }catch(err){
     console.log(err)
@@ -72,12 +74,23 @@ router.post('/description/:activityId/delete', async (req, res) => {
   const {activityId}  = req.params;
  try{
     const deletedb = await Activity.findByIdAndDelete(activityId)
-    res.redirect('/')
+    res.redirect('/myActivities')
  }catch(errr){
     console.log(errr);
  } 
  
     
+});
+
+router.get("/myActivities", async (req, res) => {
+  const user = req.session.currentUser;
+  try{
+    const userDb = await User.findById(user._id).populate("activityIds")
+    console.log(userDb)
+    res.render("activity/activity-list", {userDb, user})
+  }catch(err){
+     console.log(err)
+  }
 });
 
 
