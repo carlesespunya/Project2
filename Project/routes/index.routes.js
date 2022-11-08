@@ -130,10 +130,11 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
   })
 
 // profile page
-router.get("/:userId", isLoggedIn, async(req, res, next) => {
-  //const currUser = req.session.currentUser
+router.get("/myprofile", isLoggedIn, async(req, res, next) => {
+  const currUser = req.session.currentUser
+  console.log(currUser)
   try{
-
+    res.render("profile", currUser)
   }
   catch(err){
     console.log(err)
