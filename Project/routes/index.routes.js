@@ -13,11 +13,11 @@ const User = require('../models/User.model');
 
 router.get("/cart", isLoggedIn, async (req, res, next) => {
   try{
-    const currUser = req.session.currentUser
-    const findCarrito = await Cart.findOne({ userId: currUser})
+    const user = req.session.currentUser
+    const findCarrito = await Cart.findOne({ userId: user})
     //console.log(findCarrito)
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
-    res.render("cart", {carritoItems}) 
+    res.render("cart", {carritoItems, user}) 
   }
   catch(err){
     console.log(err)
@@ -49,9 +49,10 @@ router.get("/", (req, res, next) => {
 router.get("/catalogue", async (req, res, next) => {
   //console.log("We are inside the catalogue!")
   try{
+  const user = req.session.currentUser
   const allComics = await Comic.find()
   //console.log("This are all the comics : ", {allComics})
-  res.render("catalogue", {allComics})
+  res.render("catalogue", {allComics, user})
   } catch (err) {
     console.log("Error getting catalogue:" + err)
   }
@@ -132,10 +133,9 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
 
 // profile page
 router.get("/myprofile", isLoggedIn, async(req, res, next) => {
-  const currUser = req.session.currentUser
-  console.log(currUser)
+  const user = req.session.currentUser
   try{
-    res.render("profile", currUser)
+    res.render("profile", {user})
   }
   catch(err){
     console.log(err)
