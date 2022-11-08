@@ -15,6 +15,13 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+// Require the Spot & UserSpot model in order to interact with the database
+const Spot = require("../models/Spot.model")
+const UserSpot = require("../models/UserSpot.model")
+const Comment = require("../models/Comment.model")
+const CommentLike = require("../models/CommentLike.model")
+
+
 // GET /auth/signup
 router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup", {layout:false});
@@ -169,12 +176,56 @@ router.get("/profile", isLoggedIn, (req, res) => {
 
 
 
-router.get("/saved-spots", isLoggedIn,async (req, res) => {
-  console.log(req.session.currentUser)
-  const UserSaved = await User.findById(req.session.currentUser._id).populate("savedSpots")
-  res.render("spots/user-spots", UserSaved );
+
+
   
+//GET /spots/addSpot
+router.get("/addSpot", (req, res) => {
+  res.render("spots/addSpot");
 });
+
+router.get("/savedSpots" ,async (req, res) => {
+  console.log("hola")
+//  console.log(req.session.currentUser)
+  const UserSaved = await User.findById(req.session.currentUser._id).populate("UserSpot").populate({
+    path: "UserSpot",
+    populate: {
+      path: "spot",
+      model: "Spot",
+      populate: {
+        path: "comments",
+        model: "Comment",
+        populate: {
+          path: "author",
+          model: "User",
+          populate: {
+            path: "commentLike",
+            model: "CommentLike"
+          }
+        }
+      }
+    }
+  })
+
+  console.log(UserSaved.UserSpot[0].spot.comments[0].author)
+  // const result = await UserSpot.findById(UserSaved.UserSpot._id).populate("spot")
+  //console.log(UserSaved)
+  
+
+  res.render("spots/list-spots", UserSaved );
+});
+//GET /spots/spot
+router.get("/:spotId", async (req, res) => {
+  const spotId = req.params.spotId
+  try {
+    const spot = await Spot.findById(spotId)
+    console.log(spot)
+    res.render("spots/spot", spot)
+  }catch (err) {
+    console.log(err)
+  }
+})
+
 
 
 
