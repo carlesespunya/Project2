@@ -8,6 +8,7 @@ const Cart = require('../models/ShoppingCart.model');
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require('../models/User.model');
+const Review = require('../models/Reviews.model');
 
 
 
@@ -146,17 +147,29 @@ router.get("/myprofile", isLoggedIn, async(req, res, next) => {
 
 //review page
 router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
-  res.render("review-form")
+  try{
+    const {comicId} = req.params
+    const comicToReview = await Comic.findById(comicId)
+    console.log(comicToReview)
+    res.render("review-form", comicToReview)
+  }
+  catch(err){
+    console.log(err)
+  }
 })
-// router.post("/:comicId/review/post", isLoggedIn, async(req, res, next) => {
-//   const {comicId} = req.params
-//   const reviewBody = req.body
-//   console.log(reviewBody)
-//   try{
-//     const updateComic = await Comic.findByIdAndUpdate(comicId, {reviewIds: reviewBody})
-//   }
-//   catch(err){console.log(err)}
-// })
+ router.post("/:comicId/review/post", isLoggedIn, async(req, res, next) => {
+  const user = req.session.currentUser
+  try{
+        const {comicId} = req.params
+        const {title, star, description} = req.body
+        const newReview = await Review.create({userId: user, comicId: comicId, title: title, content: description, rating: star})
+        console.log(newReview)
+        //const updateComic = await Comic.findByIdAndUpdate(comicId, {reviewIds: reviewBody})
+//      console.log(updateComic)
+        res.redirect("/")
+    }
+    catch(err){console.log(err)}
+ })
 
 
 module.exports = router;
