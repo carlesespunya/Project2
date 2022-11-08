@@ -7,6 +7,7 @@ const Cart = require('../models/ShoppingCart.model');
 
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
+const User = require('../models/User.model');
 
 
 
@@ -70,17 +71,17 @@ router.get("/catalogue/:comicId", async (req, res, next) => {
 router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
   //console.log("we are inside!")
   const currUser = req.session.currentUser
-  console.log(currUser)
+  //console.log(currUser)
 
   const {comicId} = req.params
 
   try{
     const newItem = await Item.create({comicId})
-    console.log(newItem)
+    //console.log(newItem)
     const findCarrito = await Cart.findOne({ userId: currUser})
-    console.log(findCarrito)
+    //console.log(findCarrito)
     const addItemtoCarro = await Item.updateMany({newItem, cartId: findCarrito})
-    console.log(addItemtoCarro)
+    //console.log(addItemtoCarro)
     res.redirect("/catalogue")
   }
   catch(err){console.log(err)}
@@ -103,7 +104,20 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
     const currUser = req.session.currentUser
     //res.redirect("/cart/checkout")
     try {
+      //first we find the cart of the current user
       const findCarrito = await Cart.findOne({ userId: currUser})
+      //then, we find the items that correspond to that cart
+      const newPurchases = await Item.find({cartId: findCarrito})
+      console.log("this are new purchases", newPurchases)
+      const comics = newPurchases[0].comicId
+      const comicArray = [];
+      newPurchases.map((comic) => {
+        comicArray.push(comic.comicId);
+      })
+      //later on, we update the User.purchases with the comicIds
+      const updatePurchases = await User.findByIdAndUpdate(currUser, {$push: {purchases: comicArray}}, {new: true})
+      console.log("this is the updated history:", updatePurchases)
+      //finally we refresh the cart
       const deleteAll = await Item.deleteMany({cartId: findCarrito})
       res.redirect("/cart/checkout")
       }
@@ -115,7 +129,17 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
     res.render("checkout")
   })
 
-
+// profile page
+router.get("/myprofile", isLoggedIn, async(req, res, next) => {
+  const currUser = req.session.currentUser
+  console.log(currUser)
+  try{
+    res.render("profile", currUser)
+  }
+  catch(err){
+    console.log(err)
+  }
+})
 
 
 module.exports = router;

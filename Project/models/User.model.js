@@ -22,7 +22,10 @@ const userSchema = new Schema(
     },
     cart: {
       type: Schema.Types.ObjectId, ref: 'Cart'
-  }
+  },
+    purchases: [{
+      type: Schema.Types.ObjectId, ref: 'Comics'
+    }]
 },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
