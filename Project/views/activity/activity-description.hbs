@@ -1,10 +1,11 @@
-{{#each act}}
-<p>{{author.username}}</p>
-<p>{{activity}}</p>
-<p>{{description}}</p>
-<p>{{find}}</p>
-<p>{{from}}</p>
-<p>{{to}}</p>
-{{/each}}
+
+<p>{{act.author.username}}</p>
+<p>{{act.activity}}</p>
+<p>{{act.description}}</p>
+<p>{{act.find}}</p>
+<p>{{act.from}}</p>
+<p>{{act.to}}</p>
+<a href="mailto:{{act.author.email}} ">Contact Me</a>
+
 
 
