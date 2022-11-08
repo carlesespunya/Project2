@@ -9,27 +9,45 @@
   </head>
 
   <body>
-    <nav>
-      {{#if user}}
-      {{!-- <a href="/auth/signup">hello </a>
-      <a href="/auth/login">nice</a> --}}
+    <header>
+      
+    </header>
+        <img class="logo" src="/images/travelsouls-logo.png" alt="logo img">
+    
+        <nav id="nav-container">
+        
+        {{#if user}}
 
-      <form id="logout-form" action="/auth/logout" method="POST">
-          <button>Logout</button>
-      </form>
+          <a href="/user-profile/{{userId._id}}">Profile</a>
 
-      {{/if}}
+          <form id="logout-form" action="/auth/logout" method="POST">
+            <button>Logout</button>
+          </form>
 
-    {{#unless user}}
-      <a href="/auth/signup">Signup</a>
-      <a href="/auth/login">Login</a>
-    {{/unless}}
+        {{/if}}
 
-    </nav>
 
-    {{{body}}}
 
-    <script src="/js/script.js"></script>
+        {{#unless user}}
+
+        <ul class="nav-links">
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/login">Login</a></li>
+        </ul>
+
+        {{/unless}}
+
+      </nav>
+    </header>
+    
+    <div>
+
+      {{{body}}}
+      
+    </div>
+
+      <script src="/js/script.js"></script>
+
   </body>
 
 </html>

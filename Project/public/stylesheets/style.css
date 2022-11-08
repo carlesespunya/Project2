@@ -1,12 +1,53 @@
+/* 
+COLORS:
+
+dark blue: #26528C
+turquoise: #3C92A6
+yellow: #F2D399
+light brown: #D9AB73
+dark brown: #A67665
+ */
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
-a {
-  color: #00b7ff;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
 }
 
-h1 {
-  color: 15px;
+li, a {
+  text-decoration: none;
 }
+
+#nav-container {
+  height: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 3rem;
+}
+
+/* #welcome {
+  padding-top: 2rem;
+}
+
+#img-travelbuddy {
+  max-width: 100%;
+  height: auto;
+} */

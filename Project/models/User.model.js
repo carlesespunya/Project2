@@ -49,7 +49,8 @@ const userSchema = new Schema(
     activityIds: {
       type: [{ type: Schema.Types.ObjectId, ref: 'Activity' }],
     }
-    },
+  },
+  
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
