@@ -135,8 +135,9 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
 router.get("/myprofile", isLoggedIn, async(req, res, next) => {
   const user = req.session.currentUser
   try{
-    const findUser = await User.findById(currUser).populate("purchases")
-    res.render("profile", findUser, {user})
+    const findUser = await User.findById(user).populate("purchases")
+    console.log(findUser)
+    res.render("profile", {findUser, user})
   }
   catch(err){
     console.log(err)
