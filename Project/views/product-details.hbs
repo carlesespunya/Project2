@@ -12,10 +12,10 @@
         <div class="reviews">
             <h2>Reviews</h2>
             {{#each reviewIds}}
-            {{username}}
-            {{title}}
-            {{content}}
-            {{rating}}
+            <h3>{{title}}</h3>
+            <h4>{{rating}}</h4>
+            <h4>Username: {{username}} </h4>
+            <p>{{content}}</p>
             {{/each}}
         </div>
     </div>
