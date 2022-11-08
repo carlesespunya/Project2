@@ -11,9 +11,10 @@
     <p>{{synopsis}}</p>
         <div class="reviews">
             <h2>Reviews</h2>
-                <h3>By: jhon456</h3>
-                <h4>⭐️⭐️⭐️⭐️</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae ipsum ut turpis tristique vehicula. Phasellus vitae ornare lorem. Quisque venenatis et nulla nec euismod. Donec vel nibh ut sapien ornare convallis. </p>
+            {{#each reviewIds}}
+            {{content}}
+            {{rating}}
+            {{/each}}
         </div>
     </div>
 </div>

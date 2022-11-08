@@ -61,7 +61,7 @@ router.get("/catalogue", async (req, res, next) => {
 // --------------------- Product details Routes ------------------------
 router.get("/catalogue/:comicId", async (req, res, next) => {
   try{
-    const comic = await Comic.findById(req.params.comicId)
+    const comic = await Comic.findById(req.params.comicId).populate("reviewIds")
     res.render("product-details", comic)
   } catch (err){
     console.log("Error getting product details:" + err)
@@ -164,8 +164,7 @@ router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
         const {title, star, description} = req.body
         const newReview = await Review.create({userId: user, comicId: comicId, title: title, content: description, rating: star})
         console.log(newReview)
-        //const updateComic = await Comic.findByIdAndUpdate(comicId, {reviewIds: reviewBody})
-//      console.log(updateComic)
+        const updateComic = await Comic.findByIdAndUpdate(comicId, {reviewIds: newReview})
         res.redirect("/")
     }
     catch(err){console.log(err)}
