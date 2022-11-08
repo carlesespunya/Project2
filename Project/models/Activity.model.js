@@ -5,6 +5,9 @@ const actSchema = new Schema(
     name: {
       type: String,
     },
+    // activity: {
+
+    // },
     description: {
       type: String,
     },

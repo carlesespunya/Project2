@@ -1,2 +1,6 @@
-<p>{{name}}</p>
-<p>{{description}}</p>
+<p>{{actId.name}}</p>
+<p>{{actId.description}}</p>
+<a href="/edit/{{actId._id}}"><p>Edit activity</p></a>
+<form action="/description/{{actId._id}}/delete" method="POST">
+    <button>Delete</button>
+</form>
