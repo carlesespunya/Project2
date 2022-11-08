@@ -46,7 +46,8 @@ const userSchema = new Schema(
       required: true,
       enum: ['single', 'in a relationship']
     }
-
+  },
+  
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,

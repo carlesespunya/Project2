@@ -11,19 +11,21 @@
   <body>
     <nav>
       {{#if user}}
-      {{!-- <a href="/auth/signup">hello </a>
-      <a href="/auth/login">nice</a> --}}
 
-      <form id="logout-form" action="/auth/logout" method="POST">
+        {{!-- {{#with dbUser}} --}}
+        <a href="/user-profile/{{userId._id}}">Profile</a>
+        {{!-- {{/with}} --}}
+
+        <form id="logout-form" action="/auth/logout" method="POST">
           <button>Logout</button>
-      </form>
+        </form>
 
       {{/if}}
 
-    {{#unless user}}
-      <a href="/auth/signup">Signup</a>
-      <a href="/auth/login">Login</a>
-    {{/unless}}
+      {{#unless user}}
+        <a href="/auth/signup">Signup</a>
+        <a href="/auth/login">Login</a>
+      {{/unless}}
 
     </nav>
 
