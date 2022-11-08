@@ -2,13 +2,16 @@ const express = require('express');
 const isAdmin = require('../middleware/isAdmin');
 const isLoggedIn = require('../middleware/isLoggedIn');
 const router = express.Router();
+const User = require("../models/User.model");
 const Restaurant = require("../models/restaurant");
+const Rate = require("../models/rate");
 
 
 
 router.get('/restaurants' , async (req, res) => {
     try {
         const dbRestaurants = await Restaurant.find()
+        console.log(dbRestaurants)
         res.render('restaurants/restaurant-list', { dbRestaurants })
     } catch (error) {
         console.log(error)
@@ -36,6 +39,41 @@ router.post('/create-restaurant', async (req, res) => {
     }
 })
 
+
+router.get("/restaurants/:restaurantId", async (req, res) => {
+    const restaurantId = req.params.restaurantId
+    try {
+      const restaurant = await Restaurant.findById(restaurantId)
+      res.render("restaurants/restaurantCard", restaurant)
+    } catch (err) {
+      console.log(err)
+    }
+  })
+
+
+  router.post('/restaurants/:restaurantId', async (req, res) => {
+    const rate = req.body
+    try {
+        console.log(req.body)
+        const userId = "636961b98d81ff3624589c3f"
+        const user = await User.findById(userId)
+        const restaurantId = req.params.restaurantId
+        const restaurant = await Restaurant.findById(restaurantId)
+        let rate = true
+        const review = req.body.review
+        if (req.body.rate === "like") {
+            rate = true
+        } else if (req.body.rate === "dislike") {
+            rate = false
+        }
+        let newRate = await Rate.create({rate, review})
+        newRate.user = user
+        newRate.restaurant = restaurant
+        res.redirect('/restaurants') 
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 module.exports = router

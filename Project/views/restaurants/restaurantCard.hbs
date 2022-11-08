@@ -1,4 +1,4 @@
-{{#each restaurant}}
+    <h1>{{this.name}}</h1>
     <img src="{{this.image_url}}"
     <p>{{this.style}}</p>
     <p>{{this.address}}</p> 
@@ -8,5 +8,10 @@
     <p>{{this.coworking}}</p>
     <p>{{this.delivery}}</p>
     <p>{{this.instagram}}</p>
-
-{{/each}}
+    <form action="/restaurants/{{ this.id }}" method="POST">
+        <button type="submit" name="rate" value="like">like</button>
+        <button type="submit" name="rate" value="dislike">dislike</button>
+        <label> Review
+            <input type="text" name="review" placeholder="Your review" />
+        </label>
+    </form>
