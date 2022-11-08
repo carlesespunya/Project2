@@ -13,11 +13,11 @@ const User = require('../models/User.model');
 
 router.get("/cart", isLoggedIn, async (req, res, next) => {
   try{
-    const user = req.session.currentUser
-    const findCarrito = await Cart.findOne({ userId: user})
+    const currUser = req.session.currentUser
+    const findCarrito = await Cart.findOne({ userId: currUser})
     //console.log(findCarrito)
     const carritoItems = await Item.find({cartId: findCarrito._id}).populate('comicId')
-    res.render("cart", {carritoItems, user}) 
+    res.render("cart", {carritoItems, currUser}) 
   }
   catch(err){
     console.log(err)
@@ -42,17 +42,17 @@ router.get("/cart", isLoggedIn, async (req, res, next) => {
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  const user = req.session.currentUser
-  res.render("index", {user});
+  const currUser = req.session.currentUser
+  res.render("index", {currUser});
 });
 // ------------------------ catalogue Routes ------------------------
 router.get("/catalogue", async (req, res, next) => {
   //console.log("We are inside the catalogue!")
   try{
-  const user = req.session.currentUser
+  const currUser = req.session.currentUser
   const allComics = await Comic.find()
   //console.log("This are all the comics : ", {allComics})
-  res.render("catalogue", {allComics, user})
+  res.render("catalogue", {allComics, currUser})
   } catch (err) {
     console.log("Error getting catalogue:" + err)
   }
@@ -60,8 +60,10 @@ router.get("/catalogue", async (req, res, next) => {
 // --------------------- Product details Routes ------------------------
 router.get("/catalogue/:comicId", async (req, res, next) => {
   try{
+    const currUser = req.session.currentUser
     const comic = await Comic.findById(req.params.comicId)
-    res.render("product-details", comic)
+    console.log(comic)
+    res.render("product-details", {comic, currUser})
   } catch (err){
     console.log("Error getting product details:" + err)
   }
@@ -128,16 +130,17 @@ router.post("/catalogue/:comicId/add", isLoggedIn, async (req, res, next) => {
      } 
   })
   router.get("/cart/checkout", isLoggedIn, async (req, res, next) => {
-    res.render("checkout")
+    const currUser = req.session.currentUser
+    res.render("checkout", {currUser})
   })
 
 // profile page
 router.get("/myprofile", isLoggedIn, async(req, res, next) => {
-  const user = req.session.currentUser
+  const currUser = req.session.currentUser
   try{
-    const findUser = await User.findById(user).populate("purchases")
+    const findUser = await User.findById(currUser).populate("purchases")
     console.log(findUser)
-    res.render("profile", {findUser, user})
+    res.render("profile", {findUser, currUser})
   }
   catch(err){
     console.log(err)
@@ -146,7 +149,8 @@ router.get("/myprofile", isLoggedIn, async(req, res, next) => {
 
 //review page
 router.get("/:comicId/review", isLoggedIn, async(req, res, next) => {
-  res.render("review-form")
+  const currUser = req.session.currentUser
+  res.render("review-form", {currUser})
 })
 // router.post("/:comicId/review/post", isLoggedIn, async(req, res, next) => {
 //   const {comicId} = req.params
