@@ -185,7 +185,7 @@ router.get("/addSpot", (req, res) => {
 });
 
 router.post("/addSpot", async (req, res) => {
-  const {name, coordinates, images, description, amenities, webpage} = req.body;
+  const {name, coordinates, images, webpage, description, amenities} = req.body;
   console.log(req.body)
   try{
     const newSpot = await Spot.create({name, coordinates, images, description, amenities, webpage })
