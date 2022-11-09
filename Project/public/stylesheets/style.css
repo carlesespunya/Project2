@@ -42,6 +42,7 @@ h1 {
 .nav-bar {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 350px;
   height: 40px;
   margin-top: 15px;
@@ -287,7 +288,7 @@ ul{
   align-items: center;
    padding: 4px;
 }
-
+isLoggedIn
 
 .webLink{
   display: flex;

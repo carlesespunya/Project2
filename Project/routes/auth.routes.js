@@ -147,7 +147,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           // Remove the password field
           delete req.session.currentUser.password;
 
-          res.redirect("/");
+          res.redirect("/map");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
@@ -203,7 +203,7 @@ router.post("/addSpot", fileUploader.array('images'), async (req, res) => {
   try{
     const newSpot = await Spot.create({name, coordinates, address, images, description, province, amenities, rating, webpage })
     console.log("Spot Created")
-    res.redirect("/")
+    res.redirect("/map")
   } catch(err){
     console.log(err)
   }
@@ -296,7 +296,7 @@ router.post("/publishComment/:spotID", async (req, res) => {
       await  User.findByIdAndUpdate(req.session.currentUser._id, { $push: { comments: newComment._id } });
 
       console.log("Comment Created")
-      res.redirect("/")
+      res.redirect("/map")
     } catch(err){
       console.log(err)
     }
