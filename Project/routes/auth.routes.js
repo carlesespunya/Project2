@@ -184,10 +184,22 @@ router.get("/addSpot", (req, res) => {
   res.render("spots/addSpot");
 });
 
+router.post("/addSpot", async (req, res) => {
+  const {name, coordinates, images, description, amenities, webpage} = req.body;
+  console.log(req.body)
+  try{
+    const newSpot = await Spot.create({name, coordinates, images, description, amenities, webpage })
+    console.log("Spot Created")
+    res.redirect("/")
+  } catch(err){
+    console.log(err)
+  }
+})
+
 router.get("/savedSpots" ,async (req, res) => {
   console.log("hola")
 //  console.log(req.session.currentUser)
-  const UserSaved = await User.findById(req.session.currentUser._id).populate("UserSpot").populate({
+  const UserSaved = await User.findById(req.session.currentUser._id).populate("UserSpot ").populate({
     path: "UserSpot",
     populate: {
       path: "spot",

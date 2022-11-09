@@ -3,13 +3,13 @@ const spotSchema = new Schema(
     {
     name: {
         type: String,
-        required: true,
+        // required: true,
         unique: true,
         trim: true,
     },
     coordinates: {
         type: String,
-        required: true,
+        // required: true,
         unique: true,
         trim: true,
     },
@@ -24,7 +24,7 @@ const spotSchema = new Schema(
     },
     rating: {
         type: Number, min: 0, max: 10,
-        required: true,
+        // required: true,
     },
     amenities: {
         type: Object,
@@ -44,7 +44,7 @@ const spotSchema = new Schema(
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
     description: {
         type: String,
-        required: true,
+        // required: true,
     },
     price : {
         type: Number,
