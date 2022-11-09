@@ -418,3 +418,15 @@ h2{
   width: 100vw;
   height: 100vh;
 }
+
+#map{
+  width: 100vw;
+  height: 100vh;
+}
+
+.marker{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+}

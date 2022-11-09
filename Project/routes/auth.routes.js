@@ -174,10 +174,6 @@ router.get("/profile", isLoggedIn, (req, res) => {
   
 });
 
-
-
-
-
   
 //GET /spots/addSpot
 router.get("/addSpot", (req, res) => {
@@ -199,7 +195,7 @@ router.post("/addSpot", async (req, res) => {
 router.get("/savedSpots" ,async (req, res) => {
   console.log("hola")
 //  console.log(req.session.currentUser)
-  const UserSaved = await User.findById(req.session.currentUser._id).populate("UserSpot ").populate({
+  const UserSaved = await User.findById(req.session.currentUser._id).populate("UserSpot").populate({
     path: "UserSpot",
     populate: {
       path: "spot",
@@ -237,6 +233,18 @@ router.get("/spot/:spotId", async (req, res) => {
     console.log(err)
   }
 })
+
+//GET 
+router.get("/map", isLoggedIn, async (req, res) => {
+  try{
+    const spotsDb = await Spot.find()
+    const mapCenter = [-3.703339, 40.416729]
+    const mapZoom = 5
+    res.render("map", {layout:false, user: req.session.currentUser, spotsDb, mapCenter, mapZoom});  
+  }catch(err){
+    console.log(err)
+  }
+});
 
 
 

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
   </head>
 
   <body>
@@ -40,8 +42,27 @@
     <section >
  
 
-        <h1>{{appTitle}} 🚀</h1>
-        <p>Welcome Ironhacker!</p>
+        <div class="map" id="map"></div>
+
+        {{!-- Create hidden elements to store the display style of the map--}}
+        <div class="hidden map-center"> {{mapCenter}}  </div>
+        <div class="hidden map-zoom">  {{mapZoom}}  </div>
+
+        {{!-- Create the markers and the popups for every location --}}
+        {{!-- {{#each spotsDb}}
+          <div class="hidden popup">
+            <div class="scroll-container">
+              {{#each this.images.imagesUrl}}
+                <div class="scroll-page"> <img id="spot" src= "{{this}}"/> </div>
+              {{/each}}
+            </div>
+            <h1>{{this.name}}</h1>
+            <a href="/spot/{{this._id}}">See more</a>
+          </div>
+
+          <div class="hidden pos">  {{this.coordinates}}  </div>
+          <div class="marker">  </div>
+        {{/each}} --}}
 
 
     </section>
@@ -63,7 +84,6 @@
           </footer>
         {{/if}}
   
-
     <script src="/js/script.js"></script>
   </body>
 
