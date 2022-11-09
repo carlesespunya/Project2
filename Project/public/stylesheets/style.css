@@ -343,3 +343,78 @@ ul{
   height: 50px;
   font-size: 30px;
 }
+
+
+#spot{
+  display: flex;
+  width: 80vw;
+}
+
+#list_spots{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#description{
+  display: flex;
+  margin-left: 5px;
+  margin-bottom: 20px;
+  margin-top: 16px;
+}
+
+
+
+.scroll-container {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+.scroll-container {
+  width: 300px;
+  height: 200px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  display: flex;
+}
+.scroll-page {
+  display: flex;
+  flex-wrap: no-wrap;
+  /* align-items: center;
+  justify-content: center; */
+  height: 100%;
+  font-size: 5em;
+}
+
+#pages{
+  font-size: 14px;
+  
+}
+
+h3{
+  display: flex;
+  text-align: center;
+ 
+}
+h2{
+ color: #5EBE90;
+ font-size: 18px;
+}
+
+#spotDetails{
+  font-size: 19px;
+  margin: 16px;
+}
+
+#spot-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}

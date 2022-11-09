@@ -1,0 +1,47 @@
+
+<div id="spot-details">
+
+    <h3>{{name}}</h3>
+    <div id="rating">Rate:{{rating}}</div>
+    <div id="description">{{description}}</div>
+    
+    <div class="scroll-container">
+    {{#each images.imagesUrl}}
+     <div class="scroll-page"> <img id="spot" src= "{{this}}"/> </div>
+    {{/each}}
+    </div>
+    
+    <h3>{{province}}</h3>
+    <h3>{{coordinates}}</h3>
+    <h2>AMENITIES :</h2>
+
+    {{#if amenities.Trash_can}}
+    <h3>Trash can</h3>
+    {{/if}}
+     {{#if amenities.Shower}}
+    <h3>Shower</h3>
+    {{/if}}
+     {{#if amenities.Toilet}}
+    <h3>Toilet</h3>
+    {{/if}}
+     {{#if amenities.Drinking_water}}
+    <h3>Drinking water</h3>
+    {{/if}}
+     {{#if amenities.Webpage}}
+    <h3>Webpage</h3>
+    {{/if}}
+     {{#if amenities.Electricity}}
+    <h3>Electricity</h3>
+    {{/if}}
+    
+    <hr style="width: 70%;">
+
+    {{#each comments}}
+        <p>{{this.description}}</p>
+    {{/each}}
+
+<button id="addComment"><href="/addComment">Add a new comment</href></button>
+    
+</div>
+
+
