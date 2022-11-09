@@ -176,7 +176,7 @@ const createObjects = async function() {
             address: "1 Bentabarri Kalea, 01520 Spain",
             province: "Bizcaia",
             rating: 9,
-            images: {
+            images: { 
                 imagesUrl: ["https://res.cloudinary.com/dfajfbnkr/image/upload/v1667821041/AIRBnvan/euskadi_spot1_lb0wun.jpg","https://res.cloudinary.com/dfajfbnkr/image/upload/v1667821041/AIRBnvan/euskadi_spot2_d58m6c.jpg","https://res.cloudinary.com/dfajfbnkr/image/upload/v1667821041/AIRBnvan/euskadi_spot3_g1ncz8.jpg"],
             },
             description: "Perfect spot! A lot of amenities next to the parking. The best part was the picnic area.",

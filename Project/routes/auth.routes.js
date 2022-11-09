@@ -219,24 +219,26 @@ router.get("/savedSpots" ,async (req, res) => {
     }
   })
 
-  console.log(UserSaved.UserSpot[0].spot.comments[0].author)
+  // console.log(UserSaved.UserSpot[0].spot.comments[0].author)
   // const result = await UserSpot.findById(UserSaved.UserSpot._id).populate("spot")
   //console.log(UserSaved)
-  
+  // console.log(UserSaved.UserSpot[0].spot.images)
 
-  res.render("spots/list-spots", UserSaved );
+  res.render("spots/list-saved-spots", UserSaved);
 });
 //GET /spots/spot
-router.get("/:spotId", async (req, res) => {
+router.get("/spot/:spotId", async (req, res) => {
   const spotId = req.params.spotId
   try {
-    const spot = await Spot.findById(spotId)
-    console.log(spot)
-    res.render("spots/spot", spot)
+    const dbSpot = await Spot.findById(spotId).populate("comments")
+    console.log(dbSpot)
+    res.render("spots/spot-details", dbSpot)
   }catch (err) {
     console.log(err)
   }
 })
+
+
 
 
 

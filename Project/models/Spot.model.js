@@ -51,7 +51,7 @@ const spotSchema = new Schema(
         required: false,
     },
     images: {
-        imageUrl: [String],
+        imagesUrl: [String],
     },
     Number_parking_spots: {
         type: Number,
