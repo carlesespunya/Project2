@@ -19,13 +19,14 @@ dark brown: #A67665
 
 body {
 
+
 }
 
 #nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 0.5rem 5%;
 }
 
 .nav-links {
@@ -52,8 +53,18 @@ li, a {
 }
 
 
+/* INDEX */
 
-/* Log In */
+/* #welcome {
+  background-image: url("https://a.cdn-hotels.com/gdcs/production95/d1559/15062290-9308-43d7-a792-b3a74b2b10ef.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 50vh;
+} */
+
+
+
+/* LOG IN */
 
 #login-form-container {
   padding: 1rem;
@@ -64,5 +75,49 @@ li, a {
 }
 
 .login-item {
+  margin: 0.5rem;
   padding: 0.5rem;
+  width: 10rem;
+  background-color: white;
 }
+
+
+
+/* LOG IN % SIGN UP */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #26528C;
+}
+
+.main-item {
+  padding: 0.25rem;
+}
+
+main > p {
+  font-size: 1em;
+}
+
+
+/* HOMEPAGE/ACTIVITIES */
+
+#h2-home-activities {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#activities-container {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: beige;
+  border-radius: 25px;
+}
+
+
+
+/* USER PROFILE */
+
+
