@@ -185,7 +185,9 @@ router.get("/addSpot", (req, res) => {
 });
 
 router.post("/addSpot", async (req, res) => {
+
   const {name, coordinates, address, images, description, province, rating, webpage, BBQ, Toilet, Electricity, Trash_can, Drinking_water, Shower} = req.body;
+
   console.log(req.body)
   const amenities = {}
   if (BBQ) {amenities.BBQ = true}
