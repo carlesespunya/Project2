@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const fileUploader = require('../config/cloudinary.config');
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
@@ -184,9 +184,19 @@ router.get("/addSpot", (req, res) => {
   res.render("spots/addSpot");
 });
 
-router.post("/addSpot", async (req, res) => {
-  const {name, coordinates, address, images, description, province, rating, webpage, BBQ, Toilet, Electricity, Trash_can, Drinking_water, Shower} = req.body;
-  console.log(req.body)
+router.post("/addSpot", fileUploader.array('images'), async (req, res) => {
+  const {name, coordinates, address, description, province, rating, webpage, BBQ, Toilet, Electricity, Trash_can, Drinking_water, Shower} = req.body;
+  console.log(req)
+  const images = {imagesUrl: []}
+  if (req.file) {
+    images.imagesUrl.push(req.file.path)
+  } else if (req.files) {
+    req.files.forEach((file) =>{
+      images.imagesUrl.push(file.path)
+    })
+  }
+  
+  console.log(images)
   const amenities = {}
   if (BBQ) {amenities.BBQ = true}
   if (Toilet) {amenities.Toilet = true}
@@ -273,7 +283,11 @@ router.post("/publishComment/:spotID", async (req, res) => {
         author: authorSaved,
         description: req.body.description
       }
+      
       const newComment = await Comment.create(comment)
+      await  Spot.findByIdAndUpdate(req.params.spotID, { $push: { comments: newComment._id } });
+      await  User.findByIdAndUpdate(req.session.currentUser._id, { $push: { comments: newComment._id } });
+
       console.log("Comment Created")
       res.redirect("/")
     } catch(err){

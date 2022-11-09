@@ -1,59 +1,59 @@
 <div id="form-spot">
-  <h2>Create Spot</h2>
-  <form action="/addSpot" method="POST">
+  <h7>Create Spot</h7>
+  <form action="/addSpot" method="POST" enctype="multipart/form-data"> 
 
-    <label> Full Name
+    <label><h7>Full Name</h7>
       <input type="text" name="name" placeholder="Spot Name" />
     </label>
 
-    <label> Coordenates
+    <label><h7>Coordinates</h7>
       <input type="text" width="90%" name="coordinates" placeholder="Coordenates" />
     </label>
 
-    <label> Address -if possible
+    <label><h7>Address</h7>
       <input type="text" name="address" placeholder="Address" />
     </label>
 
-    <label> Province
+    <label><h7>Province</h7>
       <input type="text" name="province" placeholder="Address" />
     </label>
 
-    <label> Images
-      <input type="file" accept="image/png, image/jpeg" name="images" placeholder="Upload Images" />
+    <label><h7>Images</h7>
+      <input type="file" accept="image/png, image/jpeg" multiple="multiple" name="images" placeholder="Upload Images" />
     </label>
-
-    <label class="description-spot"> Description
+    
+    <label class="description-spot"><h7>Description</h7> 
       <textarea name="description" cols="30" rows="10"></textarea>
     </label>
 
-    <label class="amenities-spot" name="amenities"> Amenities
+    <label class="amenities-spot" name="amenities"><h7>Amenities</h7>
       <ul>
         <li>
-          <input type="checkbox" name="BBQ">BBQ
+          <input type="checkbox" name="BBQ"><h6>BBQ</h6>
         </li>
         <li>
-          <input type="checkbox" name="Toilet">Toilet
+          <input type="checkbox" name="Toilet"><h6>Toilet</h6>
         </li>
         <li>
-          <input type="checkbox" name="Electricity">Electricity
+          <input type="checkbox" name="Electricity"><h6>Electricity</h6>
         </li>
         <li>
-          <input type="checkbox" name="Drinking_water">Drinking Water
+          <input type="checkbox" name="Drinking_water"><h6>Drinking Water</h6>
         </li>
         <li>
-          <input type="checkbox" name="Trash_can">Trash Can
+          <input type="checkbox" name="Trash_can"><h6>Trash can</h6>
         </li>
         <li>
-          <input type="checkbox" name="Shower">Shower
+          <input type="checkbox" name="Shower"><h6>Shower</h6>
         </li>
       </ul>
     </label>
 
-    <label> Rating
+    <label><h7>Rating</h7>
       <input type="number" min="0" max="10" name="rating" id="ratinginput">
     </label>
 
-    <label> Webpage
+    <label><h7>Webpage</h7>
       <input type="url" name="webpage" id="webpageInput">
     </label>
 
