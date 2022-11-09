@@ -31,7 +31,6 @@ const spotSchema = new Schema(
         required: false,
         Toilet : {type: Boolean},
         BBQ : {type: Boolean},
-        Webpage : {type: String},
         Electricity : {type: Boolean},
         Drinking_water: {type: Boolean},
         Trash_can: {type:Boolean},

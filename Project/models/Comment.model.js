@@ -7,7 +7,8 @@ const commentSchema = new Schema(
         trim: true,
     },
     author:{ type: Schema.Types.ObjectId, ref: 'User' },
-    commentLike: [{ type: Schema.Types.ObjectId, ref: 'CommentLike' }]
+    commentLike: [{ type: Schema.Types.ObjectId, ref: 'CommentLike' }],
+    spot:{ type: Schema.Types.ObjectId, ref: 'Spot' },
     },
     {
       timestamps: true,

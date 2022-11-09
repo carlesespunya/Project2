@@ -7,7 +7,17 @@
     </label>
 
     <label> Coordenates
-      <input type="text" name="coordinates" placeholder="Coordenates" />
+
+      <input type="text" width="90%" name="coordinates" placeholder="Coordenates" />
+    </label>
+
+    <label> Address -if possible
+      <input type="text" name="address" placeholder="Address" />
+    </label>
+
+    <label> Province
+      <input type="text" name="province" placeholder="Address" />
+
     </label>
 
     <label> Images
@@ -18,25 +28,25 @@
       <textarea name="description" cols="30" rows="10"></textarea>
     </label>
 
-    <label class="amenities-spot"> Amenities
+    <label class="amenities-spot" name="amenities"> Amenities
       <ul>
         <li>
-          <input type="checkbox">BBQ
+          <input type="checkbox" name="BBQ">BBQ
         </li>
         <li>
-          <input type="checkbox">Toilet
+          <input type="checkbox" name="Toilet">Toilet
         </li>
         <li>
-          <input type="checkbox">Electricity
+          <input type="checkbox" name="Electricity">Electricity
         </li>
         <li>
-          <input type="checkbox">Drinking Water
+          <input type="checkbox" name="Drinking_water">Drinking Water
         </li>
         <li>
-          <input type="checkbox">Trash Can
+          <input type="checkbox" name="Trash_can">Trash Can
         </li>
         <li>
-          <input type="checkbox">Shower
+          <input type="checkbox" name="Shower">Shower
         </li>
       </ul>
     </label>
@@ -50,7 +60,7 @@
     </label>
 
 
-    <button type="submit">Sign Up</button>
+    <button id="button_2" type="submit">Add Spot</button>
 
 
     {{#if errorMessage}}
