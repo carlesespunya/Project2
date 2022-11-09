@@ -1,11 +1,13 @@
-<h2>Welcome TravelSouls</h2>
-<p>Sign in to continue</p>
 
 
-<div>
+<main class="main-container">
+  <h2 class="main-item">Welcome TravelSouls</h2>
+  <p class="main-item">Sign in to check out where go next!</p>
+
+
   
   <form id="login-form-container" action="/auth/login" method="POST">
-
+  
     <label class="login-item"> Username
       <input type="text" name="username" placeholder="Your username" />
     </label>
@@ -21,4 +23,4 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
-</div>
+</main>
