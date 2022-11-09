@@ -6,28 +6,25 @@ const MONGO_URI = "mongodb://localhost:27017/project2"
 
 const activities = [
   {
-    author: "" ,
-    description: "",
+    activity: "Hiking", 
+    description: "Making a pilgrimage to Montserrat.",
     find: ["group of friends"],
     from: "11-11-2022",
     to: "11-11-2022",
-    location: ""
   },
   {
-    author: "" ,
-    description: "",
-    find: [],
+    activity: "Drinks", 
+    description: "Looking to go out for some drinks on top of Barcelona",
+    find: ["date"],
     from: "11-11-2022",
     to: "11-11-2022",
-    location: ""
   },
   {
-    author: "" ,
-    description: "",
-    find: [],
+    activity: "Lunch", 
+    description: "Tapas hopping around Barcelona",
+    find: ["couple"],
     from: "11-11-2022",
     to: "11-11-2022",
-    location: ""
   }
 ]
 
@@ -41,7 +38,7 @@ const createActivities = async function () {
     console.log("Db clean")
 
     const dbActivities = await Activity.create(activities)
-    console.log(`${dbActitivies} - activities created`)
+    console.log(`activities created`)
 
     const dbClose = await mongoose.connection.close()
     console.log("Seeds created") 
