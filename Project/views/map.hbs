@@ -1,2 +1,80 @@
-<div id="map"></div>
+<html lang="en">
 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{appTitle}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <ul class="nav-bar">
+        <li id="to-left">
+          <img class="van-logo" src="images/van-logo.png" alt="">
+          {{!-- <p>AIRBNVAN</p> --}}
+        </li>
+        <li id="to-center">
+          <button>
+            <a href="/">
+            <img src="images/home.png">
+            </a>
+          </button>
+        </li>
+        <li id="to-right">
+            {{#unless user}}
+                <a href="/signup">Signup</a> <span> | </span>
+                <a href="/login">Login</a> 
+            {{/unless}}
+            {{#if user}}
+                <form action="/logout" method="post">
+                    <button type="submit">Logout</button>
+                </form>
+            {{/if}}
+        </li>
+      </ul>
+    </nav>
+
+    <section >
+        <div class="map" id="map"></div>
+
+        {{!-- Create hidden elements to store the display style of the map--}}
+        <div class="hidden map-center"> {{mapCenter}}  </div>
+        <div class="hidden map-zoom">  {{mapZoom}}  </div>
+
+        {{!-- Create the markers and the popups for every location --}}
+        {{#each spotsDb}}
+          <div class="hidden popup">
+            <div class="scroll-container">
+              {{#each this.images.imagesUrl}}
+                <div class="scroll-page"> <img id="spot" src= "{{this}}"/> </div>
+              {{/each}}
+             </div>
+             <h1>{{this.name}}</h1>
+            <a href="/spot/{{this._id}}">See more</a>
+           </div>
+
+          <div class="hidden pos">  {{this.coordinates}}  </div>
+          <div class="marker">  </div>
+        {{/each}}
+    </section>
+
+     {{#if user}}
+         <footer>
+            <a href="/map" id="mapLogo">
+            <img src="images/map-logo.png">
+            </a>  
+            <a href="/addSpot" id="addLogo">
+            <img src="images/add-logo.png">
+            </a>
+            <a href="/profile" id="profileLogo">
+            <img src="images/profile-logo.png">
+            </a>
+          </footer>
+        {{/if}}
+  
+    <script src="/js/script.js"></script>
+  </body>
