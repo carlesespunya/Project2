@@ -10,6 +10,9 @@
     </div>
 
     <h3>{{this.spot.coordinates}}</h3>
+    {{#if this.spot.amenities.Webpage}}
+        <h3>Webpage</h3>
+    {{/if}}
     <h2>AMENITIES :</h2>
 
     {{#if this.spot.amenities.Trash_can}}
@@ -23,9 +26,6 @@
     {{/if}}
      {{#if this.spot.amenities.Drinking_water}}
     <h3>Drinking water</h3>
-    {{/if}}
-     {{#if this.spot.amenities.Webpage}}
-    <h3>Webpage</h3>
     {{/if}}
      {{#if this.spot.amenities.Electricity}}
     <h3>Electricity</h3>
