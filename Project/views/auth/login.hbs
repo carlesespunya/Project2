@@ -1,16 +1,18 @@
-<div id="login-form">
-  <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
 
-    <label> Username
+
+<main class="main-container">
+  <h2 class="main-item">Welcome TravelSouls</h2>
+  <p class="main-item">Sign in to check out where go next!</p>
+
+
+  
+  <form id="login-form-container" action="/auth/login" method="POST">
+  
+    <label class="login-item"> Username
       <input type="text" name="username" placeholder="Your username" />
     </label>
 
-    {{!-- <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label> --}}
-
-    <label> Password
+    <label class="login-item"> Password
       <input type="password" name="password" placeholder="Your password" />
     </label>
 
@@ -21,4 +23,4 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
-</div>
+</main>

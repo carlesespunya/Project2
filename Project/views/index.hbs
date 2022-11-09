@@ -1,13 +1,19 @@
 <section>
 {{#if user}}
 
-<h2>Activities</h2>
+
+
+<h2 id="h2-home-activities">Check Out What's Going On</h2>
+
 {{#each activityDb}}
-<a href="/description/{{this._id}}"><p>Activity: {{this.activity}}</p></a>
+
+<div id="activities-container">
+<p><a href="/description/{{this._id}}">Activity: {{this.activity}}</a></p>
 <p>Find: {{this.find}}</p>
 <p>From: {{this.from}}</p>
 <p>To: {{this.to}}</p>
-<p>---------------------------------</p>
+</div>
+
 
 {{/each}}
 
@@ -19,7 +25,7 @@
 <section id="welcome">
 {{#unless user}}
 <h1>Welcome TravelSouls</h1>
-<img id="img-travelbuddy" src="https://a.cdn-hotels.com/gdcs/production95/d1559/15062290-9308-43d7-a792-b3a74b2b10ef.jpg" alt="travel buddies">
+{{!-- <img id="img-travelbuddy" src="https://a.cdn-hotels.com/gdcs/production95/d1559/15062290-9308-43d7-a792-b3a74b2b10ef.jpg" alt="travel buddies"> --}}
 
 
 {{/unless}}
