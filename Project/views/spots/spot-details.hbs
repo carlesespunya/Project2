@@ -38,10 +38,16 @@
 
     {{#each comments}}
         <p>{{this.description}}</p>
+        <p3>By: {{this.author.fullName}}</p3>
+     <hr style="width: 70%;">
     {{/each}}
 
-<button id="addComment"><href="/addComment">Add a new comment</href></button>
     
+
+
+<button id="button_2"><a href="/addComment/{{_id}}">Add a new comment</a>
+</button>
+   
 </div>
 
 

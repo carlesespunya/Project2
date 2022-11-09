@@ -181,10 +181,20 @@ router.get("/addSpot", (req, res) => {
 });
 
 router.post("/addSpot", async (req, res) => {
-  const {name, coordinates, images, webpage, description, amenities} = req.body;
+
+  const {name, coordinates, address, images, description, province, rating, webpage, BBQ, Toilet, Electricity, Trash_can, Drinking_water, Shower} = req.body;
+
   console.log(req.body)
+  const amenities = {}
+  if (BBQ) {amenities.BBQ = true}
+  if (Toilet) {amenities.Toilet = true}
+  if (Electricity) {amenities.Electricity = true}
+  if (Trash_can) {amenities.Trash_can = true}
+  if (Drinking_water) {amenities.Drinking_water = true}
+  if (Shower) {amenities.Shower = true}
+
   try{
-    const newSpot = await Spot.create({name, coordinates, images, description, amenities, webpage })
+    const newSpot = await Spot.create({name, coordinates, address, images, description, province, amenities, rating, webpage })
     console.log("Spot Created")
     res.redirect("/")
   } catch(err){
@@ -222,11 +232,19 @@ router.get("/savedSpots" ,async (req, res) => {
 
   res.render("spots/list-saved-spots", UserSaved);
 });
+
 //GET /spots/spot
 router.get("/spot/:spotId", async (req, res) => {
   const spotId = req.params.spotId
   try {
-    const dbSpot = await Spot.findById(spotId).populate("comments")
+    const dbSpot = await Spot.findById(spotId).populate("comments").populate({
+      path: "comments",
+      populate: {
+        path: "author",
+        model: "User",
+      }
+    })
+
     console.log(dbSpot)
     res.render("spots/spot-details", dbSpot)
   }catch (err) {
@@ -248,8 +266,29 @@ router.get("/map", isLoggedIn, async (req, res) => {
 
 
 
+router.get("/addComment/:spotID",  (req, res) => {
+  console.log(req.body)
 
+  res.render("comments/addComment", {spotID: req.params.spotID});
+  
+});
 
-
+router.post("/publishComment/:spotID", async (req, res) => {
+  
+    try{
+      const authorSaved = await User.findById(req.session.currentUser._id)
+      const spotSaved = await Spot.findById(req.params.spotID)
+      const comment = {
+        spot: spotSaved,
+        author: authorSaved,
+        description: req.body.description
+      }
+      const newComment = await Comment.create(comment)
+      console.log("Comment Created")
+      res.redirect("/")
+    } catch(err){
+      console.log(err)
+    }
+  })
 
 module.exports = router;
