@@ -109,7 +109,7 @@ const createObjects = async function() {
         const spots = [
             {
             name: "Molló, Passeig del Vallespir", 
-            coordinates: "N 42°20'53.1564” E 2°24'20.772” 42.348099, 2.405770",
+            coordinates: "42.348099, 2.405770",
             address: "Passeig del Vallespir, 17868 Molló Spain",
             province: "Girona",
             rating: 7,
@@ -126,7 +126,7 @@ const createObjects = async function() {
             },
             {
             name: "Tarifa, Pista Vereda de la Reginosa", 
-            coordinates: "N 36°5'13.3584” W -5°46'9.6924”36.087044, -5.769359",
+            coordinates: "6.087044, -5.769359",
             address: "Pista Vereda de la Reginosa, 11391 Tarifa Spain",
             province: "Cádiz",
             rating: 8,
@@ -144,7 +144,7 @@ const createObjects = async function() {
             },
             {
             name: "Gijón, Camin de Peñarrubia", 
-            coordinates: "N 43°32'57.1128” W -5°37'26.004” 43.549198, -5.623890",
+            coordinates: "43.549198, -5.623890",
             address: "Camin de Peñarrubia, 33203 Gijón Spain",
             province: "Asturias",
             rating: 6,
@@ -160,7 +160,7 @@ const createObjects = async function() {
             },
             {
             name: "Es Mercadal parking spot", 
-            coordinates: "N 40°1'57.0432” E 4°11'31.6608” 40.032512, 4.192128",
+            coordinates: "40.032512, 4.192128",
             address: "34 Urbanització Punta Grossa, Polígon II, 07740 Es Mercadal",
             province: "Menorca",
             rating: 7,
@@ -172,7 +172,7 @@ const createObjects = async function() {
             },
             {
             name: "Bentabarri Kalea parking", 
-            coordinates: "N 42°57'26.532” W -2°35'28.3704”42.957370, -2.591214",
+            coordinates: "42.957370, -2.591214",
             address: "1 Bentabarri Kalea, 01520 Spain",
             province: "Bizcaia",
             rating: 9,
