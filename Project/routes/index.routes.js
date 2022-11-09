@@ -1,9 +1,10 @@
 const express = require('express');
+const isLoggedOut = require('../middleware/isLoggedOut');
 const router = express.Router();
 const Spot = require("../models/Spot.model")
 
 /* GET home page */
-router.get("/", async (req, res, next) => {
+router.get("/",isLoggedOut, async (req, res, next) => {
   try{
     const spotsDb = await Spot.find()
     const mapCenter = [-3.703339, 40.416729]
