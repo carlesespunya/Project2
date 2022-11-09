@@ -1,6 +1,6 @@
 <div id="form-spot">
   <h2>Create Spot</h2>
-  <form action="/auth/addSpot" method="POST">
+  <form action="/addSpot" method="POST">
 
     <label> Full Name
       <input type="text" name="fullname" placeholder="Spot Name" />
@@ -39,6 +39,10 @@
           <input type="checkbox">Shower
         </li>
       </ul>
+    </label>
+
+    <label> Rating
+      <input type="number" min="0" max="10" name="rating" id="ratinginput">
     </label>
 
     <label> Webpage
